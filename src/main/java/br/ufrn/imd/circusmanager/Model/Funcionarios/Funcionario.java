@@ -1,5 +1,7 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
+import java.util.ArrayList;
+
 public abstract class Funcionario {
     private String nome;
     private double salario;
@@ -24,4 +26,6 @@ public abstract class Funcionario {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
+    public abstract ArrayList<String> getItens();
 }
