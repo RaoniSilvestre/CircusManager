@@ -18,4 +18,8 @@ public class FuncionarioDAO {
     public void deleteFuncionario(Funcionario f) {
         this.funcionarios.remove(f);
     }
+
+    public ArrayList<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
 }
