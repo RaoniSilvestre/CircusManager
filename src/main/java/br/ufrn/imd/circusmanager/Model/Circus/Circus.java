@@ -1,17 +1,6 @@
 package br.ufrn.imd.circusmanager.Model.Circus;
 
-<<<<<<< Updated upstream
-//import br.ufrn.imd.circusmanager.Dao.*;
 
-public class Circus {
-    //private FuncionarioDAO funcionarios;
-    //private AnimalDAO animais;
-
-    //public Circus(float saldo) {
-    //    animais = new AnimalDAO();
-    //    funcionarios = new FuncionarioDAO();
-    //}
-=======
 import br.ufrn.imd.circusmanager.Dao.*;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.ContaCirco;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
@@ -34,5 +23,4 @@ public class Circus {
         animais = new AnimalDAO();
         funcionarios = new FuncionarioDAO();
     }
->>>>>>> Stashed changes
 }
