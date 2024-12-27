@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ContaCirco {
     private ArrayList<Transacao> transacoes;
-    private Long balanco;
+    private long balanco = 0;
 
     public ContaCirco() {
         this.transacoes = new ArrayList<>();

@@ -5,7 +5,14 @@ import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
 public class Transacao {
     private String nome;
     private TransacaoEnum tipo;
-    private Long valor;
+    private long valor;
+
+    
+    public Transacao(String nome, TransacaoEnum tipo, long valor) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.valor = valor;
+    }
 
     public String getNome() {
         return nome;
