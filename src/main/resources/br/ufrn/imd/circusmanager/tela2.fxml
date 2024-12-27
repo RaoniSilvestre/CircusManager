@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.ufrn.imd.circusmanager.Control.Tela2Controller" prefWidth="800" prefHeight="600">
+    <children>
+        <VBox alignment="CENTER" spacing="15">
+            
+            <Label text="Circus Manager" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+            <!-- Campo de texto e botão para entrar em circo -->
+            <HBox alignment="CENTER" spacing="10">
+                
+                <Label text="Entrar em Circo:" />
+                <TextField fx:id="circoTextField" promptText="Digite o nome do circo" />
+                <Button fx:id="entrarButton" text="Entrar" onAction="#entrarEmCirco" />
+            </HBox>
+
+            <!-- Mensagem de erro -->
+            <Label fx:id="erroLabel" text="Circo inexistente" style="-fx-text-fill: red;" visible="false" />
+
+            
+            <!-- Botão para criar novo circo -->
+            <Button fx:id="criarNovoCircoButton" text="Criar Novo Circo" onAction="#criarNovoCirco" />
+            
+
+            <!-- Botão para sair -->
+            <Button fx:id="sairButton" text="Sair" onAction="#sairDoSistema" />
+        </VBox>
+    </children>
+</StackPane>

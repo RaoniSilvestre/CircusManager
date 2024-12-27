@@ -1,5 +1,6 @@
 package br.ufrn.imd.circusmanager.Model.Circus;
 
+<<<<<<< Updated upstream
 //import br.ufrn.imd.circusmanager.Dao.*;
 
 public class Circus {
@@ -10,4 +11,28 @@ public class Circus {
     //    animais = new AnimalDAO();
     //    funcionarios = new FuncionarioDAO();
     //}
+=======
+import br.ufrn.imd.circusmanager.Dao.*;
+import br.ufrn.imd.circusmanager.Model.ContaBancaria.ContaCirco;
+import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
+import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
+
+public class Circus {
+    private String nome;
+    private ContaCirco conta;
+    private FuncionarioDAO funcionarios;
+    private AnimalDAO animais;
+
+    public Circus(String nome, long saldo) {
+        this.nome = nome;
+        conta = new ContaCirco();
+
+        Transacao transacaoInicial = new Transacao("Fundação", TransacaoEnum.FUNDACAO, saldo);
+
+        conta.addTransacao(transacaoInicial);
+
+        animais = new AnimalDAO();
+        funcionarios = new FuncionarioDAO();
+    }
+>>>>>>> Stashed changes
 }

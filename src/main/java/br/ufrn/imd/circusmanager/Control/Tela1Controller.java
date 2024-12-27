@@ -1,14 +1,14 @@
-package br.ufrn.imd.circusmanager;
+package br.ufrn.imd.circusmanager.Control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class Tela1Controller extends Botao {
     @FXML
     private Label welcomeText;
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        main.showScreen(2);
     }
 }
