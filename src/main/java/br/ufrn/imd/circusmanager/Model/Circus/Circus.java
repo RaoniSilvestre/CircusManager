@@ -9,8 +9,8 @@ import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
 public class Circus {
     private String nome;
     private ContaCirco conta;
-    private FuncionarioDAO funcionarios;
-    private AnimalDAO animais;
+    private FuncionarioDAO listaDeFuncionarios;
+    private AnimalDAO listaDeAnimais;
 
     public Circus(String nome, long saldo) {
         this.nome = nome;
@@ -20,7 +20,23 @@ public class Circus {
 
         conta.addTransacao(transacaoInicial);
 
-        animais = new AnimalDAO();
-        funcionarios = new FuncionarioDAO();
+        listaDeAnimais = new AnimalDAO();
+        listaDeFuncionarios = new FuncionarioDAO();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public ContaCirco getConta() {
+        return conta;
+    }
+
+    public FuncionarioDAO getListaDeFuncionarios() {
+        return listaDeFuncionarios;
+    }
+
+    public AnimalDAO getListaDeAnimais() {
+        return listaDeAnimais;
     }
 }

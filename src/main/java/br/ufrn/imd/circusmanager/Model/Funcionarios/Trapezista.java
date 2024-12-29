@@ -9,7 +9,7 @@ public class Trapezista extends Funcionario{
     ArrayList<String> itensTrapezista;
     private TrapezistaEnum tipo;
 
-    Trapezista(String nome, double salario, TrapezistaEnum tipo) {
+    public Trapezista(String nome, double salario, TrapezistaEnum tipo) {
         super(nome, salario);
         this.itensTrapezista = new ArrayList<>();
         this.tipo = tipo;

@@ -1,20 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Button?>
+<?xml version="1.0" encoding="UTF-8"?> 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="br.ufrn.imd.circusmanager.Control.Tela1Controller">
+      fx:controller="br.ufrn.imd.circusmanager.Control.TelaCircoMenuController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
+    <!-- Título -->
+    <Label fx:id="circusLabel" text="Circo" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
     
-    <Label text="Circus Manager" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <!-- Saldo -->
+    <Label fx:id="saldoLabel" text="Saldo: $0.00" style="-fx-font-size: 18px;" />
 
-    <Button text="Test" onAction="#onHelloButtonClick"/>
+    <!-- Botões de opções -->
+    
+    <Button text="Verificar lista de funcionários" onAction="#verificarListaFuncionarios" />
+    <Button text="Adicionar funcionário" onAction="#adicionarFuncionario" />
+    <Button text="Remover funcionário" onAction="#removerFuncionario" />
+    <Button text="Zoo" onAction="#zoo" />
+    <Button text="Sair do circo" onAction="#sairDoCirco" />
+
+    <!-- Botão Sair -->
     <Button text="Sair" onAction="#sairDoSistema"/>
 </VBox>
