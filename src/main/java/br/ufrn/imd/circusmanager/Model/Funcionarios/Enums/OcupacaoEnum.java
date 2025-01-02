@@ -1,6 +1,6 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios.Enums;
 
-public enum Ocupacao {
+public enum OcupacaoEnum {
     MAGICO,
     TRAPEZISTA,
     PALHACO;
