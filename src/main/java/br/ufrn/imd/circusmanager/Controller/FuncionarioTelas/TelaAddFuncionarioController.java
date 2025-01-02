@@ -1,15 +1,20 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.MagicoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.PalhacosEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.TrapezistaEnum;
+import br.ufrn.imd.circusmanager.Model.Itens.Enums.FerramentaPalhacoEnum;
+import br.ufrn.imd.circusmanager.Model.Itens.Enums.FerramentaTrapezistaEnum;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+
+import java.util.Arrays;
 
 public class TelaAddFuncionarioController extends Tela {
     
@@ -46,27 +51,17 @@ public class TelaAddFuncionarioController extends Tela {
 
             switch (ocupacaoSelecionada) {
                 case TRAPEZISTA -> {
-                    tipoComboBox.setItems(FXCollections.observableArrayList(TrapezistaEnum.values()));
+                    tipoComboBox.setItems(parseToString(TrapezistaEnum.values()));
+                    itemComboBox.setItems(parseToString(FerramentaTrapezistaEnum.values()));
                 }
                 case PALHACO -> {
-                    tipoComboBox.setItems();
+                    tipoComboBox.setItems(parseToString(PalhacosEnum.values()));
+                    itemComboBox.setItems(parseToString(FerramentaPalhacoEnum.values()));
                 }
                 case MAGICO -> {
-
+                    tipoComboBox.setItems(parseToString(MagicoEnum.values()));
+                    itemComboBox.setItems(parseToString(MagicoEnum.values()));
                 }
-            }
-
-            if (ocupacaoSelecionada.equals(OcupacaoEnum.MAGICO)) {
-                tipoComboBox.setItems(FXCollections.observableArrayList("ILUSIONISTA", "INFANTIL", "CLASSICO"));
-                itemComboBox.setItems(FXCollections.observableArrayList("CARTOLA","BARALHO"));
-            }
-            else if (ocupacaoSelecionada.equals("Palhaço")) {
-                tipoComboBox.setItems(FXCollections.observableArrayList("BRANCO", "AUGUSTO", "CONTRA_AUGUSTO","MIMICO"));
-                itemComboBox.setItems(FXCollections.observableArrayList("NARIZ_VERMELHO", "BOTA_GRANDE"));
-            }
-            else if (ocupacaoSelecionada.equals("Trapezista")) {
-                tipoComboBox.setItems(FXCollections.observableArrayList("FIXO","VOADOR","CASTIN","MULTIPLO"));
-                itemComboBox.setItems(FXCollections.observableArrayList("TRAPEZIO"));
             }
         });
     }
@@ -146,6 +141,14 @@ public class TelaAddFuncionarioController extends Tela {
         itemComboBox.setValue(null);
     }
 
+
+    private <T> ObservableList<String> parseToString(T[] list) {
+        return FXCollections.observableArrayList(
+                Arrays.stream(list)
+                        .map(Object::toString)
+                        .toList()
+        );
+    }
 
     @Override
     public void voltar() {

@@ -1,4 +1,4 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
