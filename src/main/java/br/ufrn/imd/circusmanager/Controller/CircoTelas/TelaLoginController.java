@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.CircoTelas;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

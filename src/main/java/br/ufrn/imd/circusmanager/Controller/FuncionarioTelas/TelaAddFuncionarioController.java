@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.FuncionarioTelas;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.MagicoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;

@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.FuncionarioTelas;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;

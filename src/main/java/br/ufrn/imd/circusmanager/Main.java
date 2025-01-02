@@ -12,7 +12,7 @@ import br.ufrn.imd.circusmanager.Storage.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import br.ufrn.imd.circusmanager.Control.Tela;
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Circus.Circus;
 
 public class Main extends Application {

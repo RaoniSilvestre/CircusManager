@@ -1,4 +1,4 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import java.util.Map;
 
@@ -15,14 +15,14 @@ public abstract class Tela {
 
     public abstract void atualizar();
 
-    Map<String, MagicoEnum> magicoMap = Map.of(
+    protected Map<String, MagicoEnum> magicoMap = Map.of(
         "ILUSIONISTA", MagicoEnum.ILUSIONISTA,
         "INFANTIL", MagicoEnum.INFANTIL,
         "CLASSICO", MagicoEnum.CLASSICO
     );
         
 
-    Map<String, PalhacosEnum> palhacoMap = Map.of(
+    protected Map<String, PalhacosEnum> palhacoMap = Map.of(
         "AUGUSTO", PalhacosEnum.AUGUSTO,
         "BRANCO", PalhacosEnum.BRANCO,
         "CONTRA_AGUSTO", PalhacosEnum.CONTRA_AUGUSTO,
@@ -30,7 +30,7 @@ public abstract class Tela {
     );
         
         
-     Map<String, TrapezistaEnum> trapezistaMap = Map.of(
+     protected Map<String, TrapezistaEnum> trapezistaMap = Map.of(
         "FIXO", TrapezistaEnum.FIXO,
         "VOADOR", TrapezistaEnum.VOADOR,
         "CASTIN", TrapezistaEnum.CASTININ,
