@@ -3,16 +3,16 @@ package br.ufrn.imd.circusmanager.Control;
 import java.util.Map;
 
 import br.ufrn.imd.circusmanager.Main;
-import br.ufrn.imd.circusmanager.Model.Animais.Animal;
 import br.ufrn.imd.circusmanager.Model.Circus.Circus;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public abstract class Botao {
+public abstract class Tela {
     protected Main main;
     protected Circus circus;
+
     public abstract void atualizar();
 
     Map<String, MagicoEnum> magicoMap = Map.of(
@@ -33,7 +33,7 @@ public abstract class Botao {
      Map<String, TrapezistaEnum> trapezistaMap = Map.of(
         "FIXO", TrapezistaEnum.FIXO,
         "VOADOR", TrapezistaEnum.VOADOR,
-        "CASTIN", TrapezistaEnum.CASTIN,
+        "CASTIN", TrapezistaEnum.CASTININ,
         "MULTIPLO", TrapezistaEnum.MULTIPLO
     );
     
@@ -59,6 +59,7 @@ public abstract class Botao {
         System.exit(0);
     }
 
+    // O que djabo é isso
     @FXML
     public void voltar() {
         if (main.telaAtual < 4) {
@@ -73,23 +74,9 @@ public abstract class Botao {
     }
 
     public String getFuncionarioDescricao(Funcionario funcionario) {
-        String ocupacao;
-            String tipo;
-    
-            if (funcionario instanceof Palhaco) {
-                ocupacao = "Palhaço";
-                tipo = ((Palhaco)funcionario).getTipo().getDescricao();
-            } else if (funcionario instanceof Magico) {
-                ocupacao = "Mágico";
-                tipo = ((Magico)funcionario).getTipo().getDescricao();
-            } else if (funcionario instanceof Trapezista) {
-                ocupacao = "Trapezista";
-                tipo = ((Trapezista)funcionario).getTipo().getDescricao();
-            } else {
-                ocupacao = "Funcionário";
-                tipo = "Normal";
-            }
-    
-            return String.format("%s - Ocupação: %s - Tipo: %s", funcionario.getNome(), ocupacao, tipo);
+        return String.format("%s - Ocupação: %s - Tipo: %s",
+                funcionario.getNome(),
+                funcionario.getOcupacao(),
+                funcionario.getTipo());
     }
 }

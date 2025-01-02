@@ -22,6 +22,12 @@ public class Magico extends Funcionario {
         itensMagico.remove(s);
     }
 
+
+    @Override
+    public String getOcupação() {
+        return "";
+    }
+
     // getters
     public ArrayList<String> getItens() {
         return itensMagico;

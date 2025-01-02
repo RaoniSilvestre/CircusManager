@@ -27,5 +27,8 @@ public abstract class Funcionario {
         this.salario = salario;
     }
 
+    public abstract String getOcupação();
+
+
     public abstract ArrayList<String> getItens();
 }
