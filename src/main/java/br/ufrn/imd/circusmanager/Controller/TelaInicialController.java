@@ -1,9 +1,9 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class TelaInicialController extends Botao {
+public class TelaInicialController extends Tela {
     @FXML
     private Label welcomeText;
 

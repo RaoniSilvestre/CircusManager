@@ -1,6 +1,5 @@
 package br.ufrn.imd.circusmanager.Model.Circus;
 
-
 import br.ufrn.imd.circusmanager.Dao.*;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.ContaCirco;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
@@ -11,8 +10,10 @@ public class Circus {
     private ContaCirco conta;
     private FuncionarioDAO listaDeFuncionarios;
     private AnimalDAO listaDeAnimais;
+    private ShowDAO listaDeShows;
+    
 
-    public Circus(String nome, long saldo) {
+    public Circus(String nome, double saldo) {
         this.nome = nome;
         conta = new ContaCirco();
 
@@ -22,6 +23,7 @@ public class Circus {
 
         listaDeAnimais = new AnimalDAO();
         listaDeFuncionarios = new FuncionarioDAO();
+        listaDeShows = new ShowDAO();
     }
 
     public String getNome() {
@@ -38,5 +40,9 @@ public class Circus {
 
     public AnimalDAO getListaDeAnimais() {
         return listaDeAnimais;
+    }
+
+    public ShowDAO getListaDeShows() {
+        return listaDeShows;
     }
 }

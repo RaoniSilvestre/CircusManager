@@ -11,6 +11,6 @@ public enum AnimaisEnum {
         if (especieSelecionada.equals("LEÃO")) return LEAO;
         if (especieSelecionada.equals("ORNITORRINCO")) return ORNITORRINCO;
         return ELEFANTE;
-
+        
     }
 }

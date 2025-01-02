@@ -1,10 +1,10 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios.Enums;
 
 public enum TrapezistaEnum {
-    FIXO("FIXO"),
-    VOADOR("VOADOR"),
-    CASTIN("CASTIN"),
-    MULTIPLO("MULTIPLO");
+    FIXO("Fixo"),
+    VOADOR("Voador"),
+    CASTIN("Castin"),
+    MULTIPLO("Multiplo");
 
     private final String descricao;
 

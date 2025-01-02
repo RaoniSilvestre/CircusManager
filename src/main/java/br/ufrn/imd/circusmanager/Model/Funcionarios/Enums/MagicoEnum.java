@@ -1,9 +1,9 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios.Enums;
 
 public enum MagicoEnum {
-    ILUSIONISTA("ILUSIONISTA"),
-    INFANTIL("INFANTIL"),
-    CLASSICO("CLASSICO");
+    ILUSIONISTA("Ilusionista"),
+    INFANTIL("Infantil"),
+    CLASSICO("Classico");
 
     private final String descricao;
 

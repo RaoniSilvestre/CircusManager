@@ -1,10 +1,10 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios.Enums;
 
 public enum PalhacosEnum {
-    AUGUSTO("AUGUSTO"),
-    BRANCO("BRANCO"),
-    CONTRA_AUGUSTO("CONTRA_AUGUSTO"),
-    MIMICO("MIMICO");
+    AUGUSTO("Augusto"),
+    BRANCO("Branco"),
+    CONTRA_AUGUSTO("Contra augusto"),
+    MIMICO("Mimico");
 
     private final String descricao;
 

@@ -3,18 +3,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" fx:controller="br.ufrn.imd.circusmanager.Controller.RemoverFuncionarioController">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" fx:controller="br.ufrn.imd.circusmanager.Controller.RemoverAnimalController">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
     <!-- Título -->
-    <Label text="Remover Funcionário" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    <Label text="Remover Animal" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
     <Separator orientation="HORIZONTAL"/>
 
     <!-- Lista de funcionários -->
     <ScrollPane fitToWidth="true" prefHeight="300">
-        <VBox fx:id="funcionariosVBox" spacing="5" alignment="CENTER">
+        <VBox fx:id="animaisVBox" spacing="5" alignment="CENTER">
             <!-- Cada funcionário será adicionado dinamicamente no VBox -->
         </VBox>
     </ScrollPane>

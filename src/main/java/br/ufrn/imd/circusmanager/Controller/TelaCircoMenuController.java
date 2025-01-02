@@ -1,9 +1,9 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class TelaCircoMenuController extends Botao {
+public class TelaCircoMenuController extends Tela {
 
     // Referência para o LAbel que exibe o nome do circo
     @FXML
@@ -15,32 +15,33 @@ public class TelaCircoMenuController extends Botao {
 
     
     @FXML
-    private void verificarListaFuncionarios() {
+    private void funcionarios() {
         main.showScreen(5);
     }
 
-
-    @FXML
-    private void adicionarFuncionario() {
-        main.showScreen(6);
-    }
-
-
-    @FXML
-    private void removerFuncionario() {
-        main.showScreen(7);
-    }
-
-
     @FXML
     private void zoo() {
-        main.showScreen(8);
+        main.showScreen(9);
     }
 
+    @FXML
+    private void dados() {
+        main.showScreen(13);
+    }
 
     @FXML
     private void sairDoCirco() {
        main.showScreen(2);
+    }
+
+    @FXML
+    private void simularShow() {
+        main.showScreen(14);
+    }
+
+    @FXML
+    private void cadastrarShow() {
+        main.showScreen(15);
     }
 
     // Atualizar a Interface

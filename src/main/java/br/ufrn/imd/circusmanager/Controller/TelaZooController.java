@@ -1,25 +1,25 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import javafx.fxml.*;
 
-public class TelaZooController extends Botao{
+public class TelaZooController extends Tela{
 
     
     @FXML
     private void verListaAnimais() {
-        main.showScreen(9, main.getCircoAtual());
+        main.showScreen(10);
     }
 
 
     @FXML
     private void adicionarAnimal() {
-        main.showScreen(10, main.circoAtual);
+        main.showScreen(11);
     }
 
 
     @FXML
     private void removerAnimal() {
-        main.showScreen(11, main.circoAtual);
+        main.showScreen(12);
     }
 
 
