@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ContaCirco {
     private ArrayList<Transacao> transacoes;
-    private long balanco = 0;
+    private double balanco = 0;
 
     public ContaCirco() {
         this.transacoes = new ArrayList<>();
@@ -15,7 +15,7 @@ public class ContaCirco {
         balanco+= t.getValor();
     }
 
-    public long getBalanco() {
+    public double getBalanco() {
         return balanco;
     }
 

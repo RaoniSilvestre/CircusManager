@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER" spacing="15" style="-fx-border-color: black; -fx-border-width: 2; -fx-padding: 20;"
+  fx:controller="br.ufrn.imd.circusmanager.Controller.CadastrarShowController">
+
+    <Label text="Cadastrar Show" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+    <GridPane hgap="10" vgap="10" alignment="CENTER">
+        <Label text="Total de visitantes:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="totalVisitantesField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        
+        <Label text="Pipocas Vendidas:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="pipocasVendidasField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        
+        <Label text="Algodões doces vendidos:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="algodoesDocesVendidosField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        
+        <Label text="Brinquedos vendidos:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="brinquedosVendidosField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        
+        <Label text="Custos totais:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="custosTotaisField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        
+        <Label text="Lucro:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <TextField fx:id="lucroField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        
+        <Label text="Data:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <HBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="6">
+          <ComboBox fx:id="diaComboBox" promptText="Dia" prefWidth="60" />
+          <ComboBox fx:id="mesComboBox" promptText="Mês" prefWidth="80" />
+          <ComboBox fx:id="anoComboBox" promptText="Ano" prefWidth="80" />
+        </HBox>
+    </GridPane>
+    
+    <HBox spacing="15" alignment="CENTER" >
+        <Button text="Voltar" onAction="#voltar"/>
+        <Button text="Registrar" onAction="#registrar"/>
+    </HBox>
+</VBox>

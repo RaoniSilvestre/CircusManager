@@ -1,4 +1,4 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import br.ufrn.imd.circusmanager.Model.Animais.*;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
 
-public class TelaRemoverAnimalController extends Botao {
+public class RemoverAnimalController extends Tela {
 
     @FXML
     private VBox animaisVBox;

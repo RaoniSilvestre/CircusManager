@@ -1,4 +1,4 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import br.ufrn.imd.circusmanager.Model.Animais.*;
 import javafx.collections.FXCollections;
@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class TelaAddAnimalController extends Botao {
+public class AddAnimalController extends Tela {
 
     @FXML
     private ComboBox<String> especieComboBox;

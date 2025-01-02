@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="br.ufrn.imd.circusmanager.Control.TelaCircoMenuController">
+      fx:controller="br.ufrn.imd.circusmanager.Controller.TelaCircoMenuController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
@@ -17,10 +17,11 @@
 
     <!-- Botões de opções -->
     
-    <Button text="Verificar lista de funcionários" onAction="#verificarListaFuncionarios" />
-    <Button text="Adicionar funcionário" onAction="#adicionarFuncionario" />
-    <Button text="Remover funcionário" onAction="#removerFuncionario" />
+    <Button text="Funcionários" onAction="#funcionarios" />
     <Button text="Zoo" onAction="#zoo" />
+    <Button text="Dados" onAction="#dados" />
+    <Button text="Simular Show" onAction="#simularShow" />
+    <Button text="Cadastrar Show" onAction="#cadastrarShow" />
     <Button text="Sair do circo" onAction="#sairDoCirco" />
 
     <!-- Botão Sair -->

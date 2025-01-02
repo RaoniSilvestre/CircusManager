@@ -1,10 +1,10 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import br.ufrn.imd.circusmanager.Model.Circus.*;
 
-public class TelaCriarCircoController extends Botao {
+public class CriarCircoController extends Tela {
 
     @FXML
     private TextField nomeCircoField;
@@ -24,7 +24,7 @@ public class TelaCriarCircoController extends Botao {
         }
 
         try {
-            long saldo = Long.parseLong(saldoCirco);
+            double saldo = Double.parseDouble(saldoCirco);
 
             if (saldo < 0) {
                 showAlert("Erro", "O saldo do circo deve ser um valor positivo!");

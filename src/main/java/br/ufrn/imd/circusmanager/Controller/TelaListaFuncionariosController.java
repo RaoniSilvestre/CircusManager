@@ -1,10 +1,10 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-public class TelaListaFuncionariosController extends Botao {
+public class TelaListaFuncionariosController extends Tela {
     @FXML
     private ListView<String> listaFuncionarios;
 
@@ -13,7 +13,7 @@ public class TelaListaFuncionariosController extends Botao {
         listaFuncionarios.getItems().clear();
     
         for (Funcionario funcionario : main.circoAtual.getListaDeFuncionarios().getFuncionarios()) {
-            listaFuncionarios.getItems().add(getFuncionarioDescricao(funcionario));
+            listaFuncionarios.getItems().add(funcionario.getDescricao());
         }
     }
 

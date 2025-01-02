@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="br.ufrn.imd.circusmanager.Controller.SimularShowController">
+
+    <Label text="Show Simulado" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+    <Label fx:id="ingressosVendidosLabel" text="Ingressos vendidos:" />
+    <Label fx:id="algodoesDocesVendidosLabel" text="Algodões doces vendidos:" />
+    <Label fx:id="pipocasVendidasLabel" text="Pipocas vendidas:" />
+    <Label fx:id="brinquedosVendidosLabel" text="Brinquedos vendidos:" />
+    <Label fx:id="totalArrecadadoLabel" text="Total arrecadado:" />
+    <Label fx:id="custoDoShowLabel" text="Custo do show:" />
+    <Label fx:id="lucroLabel" text="Lucro:" />
+
+    <Button text="Voltar" onAction="#voltar"/>
+</VBox>

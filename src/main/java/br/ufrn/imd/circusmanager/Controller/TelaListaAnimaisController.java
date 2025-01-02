@@ -1,10 +1,10 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import br.ufrn.imd.circusmanager.Model.Animais.Animal;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-public class TelaListaAnimaisController extends Botao {
+public class TelaListaAnimaisController extends Tela {
     @FXML
     private ListView<String> listaAnimais;
 

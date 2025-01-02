@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="br.ufrn.imd.circusmanager.Controller.TelaDadosController">
+
+    <Label text="Dados" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+    <VBox spacing="5" alignment="CENTER">
+        <Label text="Numero de funcionarios:" fx:id="numeroFuncionariosLabel" />
+        <Label text="Quantidade de animais:" fx:id="quantidadeAnimaisLabel" />
+        <Label text="Custo total mensal:" fx:id="custoTotalMensalLabel" />
+        <Label text="Total de itens:" fx:id="totalItensLabel" />
+        <Label text="Funcionario mais antigo:" fx:id="funcionarioMaisAntigoLabel" />
+    </VBox>
+
+    <Button text="Voltar" onAction="#voltar"/>
+
+</VBox>

@@ -1,4 +1,4 @@
-package br.ufrn.imd.circusmanager.Control;
+package br.ufrn.imd.circusmanager.Controller;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
 
-public class TelaRemoverFuncionarioController extends Botao {
+public class RemoverFuncionarioController extends Tela {
 
     @FXML
     private VBox funcionariosVBox;
@@ -18,7 +18,7 @@ public class TelaRemoverFuncionarioController extends Botao {
         linha.setSpacing(10);
         linha.setAlignment(Pos.CENTER_LEFT);
 
-        Label nomeLabel = new Label(getFuncionarioDescricao(funcionario));
+        Label nomeLabel = new Label(funcionario.getDescricao());
         nomeLabel.setStyle("-fx-font-size: 16px;");
 
         Button removerButton = new Button("X");
