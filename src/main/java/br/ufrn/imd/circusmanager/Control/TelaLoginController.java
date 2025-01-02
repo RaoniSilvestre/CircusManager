@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class TelaLoginController extends Botao {
+public class TelaLoginController extends Tela {
 
     @FXML
     private Button criarNovoCircoButton;

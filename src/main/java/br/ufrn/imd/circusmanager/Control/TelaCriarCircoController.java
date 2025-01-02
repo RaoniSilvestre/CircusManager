@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import br.ufrn.imd.circusmanager.Model.Circus.*;
 
-public class TelaCriarCircoController extends Botao {
+public class TelaCriarCircoController extends Tela {
 
     @FXML
     private TextField nomeCircoField;

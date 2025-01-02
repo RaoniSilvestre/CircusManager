@@ -2,7 +2,7 @@ package br.ufrn.imd.circusmanager.Control;
 
 import javafx.fxml.*;
 
-public class TelaZooController extends Botao{
+public class TelaZooController extends Tela {
 
     
     @FXML

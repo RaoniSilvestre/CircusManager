@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
 
-public class TelaRemoverAnimalController extends Botao {
+public class TelaRemoverAnimalController extends Tela {
 
     @FXML
     private VBox animaisVBox;

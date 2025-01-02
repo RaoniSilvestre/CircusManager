@@ -2,6 +2,7 @@ package br.ufrn.imd.circusmanager.Control;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.MagicoEnum;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.PalhacosEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.TrapezistaEnum;
 import javafx.collections.FXCollections;
@@ -10,12 +11,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class TelaAddFuncionarioController extends Botao{
+public class TelaAddFuncionarioController extends Tela {
     
     @Override
     public void atualizar() {}
     @FXML
-    private ComboBox<String> ocupacaoComboBox;
+    private ComboBox<OcupacaoEnum> ocupacaoComboBox;
     @FXML
     private TextField nomeTextField;
     @FXML
@@ -30,12 +31,12 @@ public class TelaAddFuncionarioController extends Botao{
      @FXML
     public void initialize() {
         // Definir opções do ComboBox de ocupação
-        ocupacaoComboBox.setItems(FXCollections.observableArrayList("Mágico", "Palhaço", "Trapezista"));
+        ocupacaoComboBox.setItems(FXCollections.observableArrayList(OcupacaoEnum.values()));
 
         ocupacaoComboBox.setOnAction(event -> {
             if (ocupacaoComboBox.getValue() == null) return;
  
-            String ocupacaoSelecionada = ocupacaoComboBox.getValue();
+            OcupacaoEnum ocupacaoSelecionada = ocupacaoComboBox.getValue();
 
             //Limpar itens e tipo
             itensListView.getItems().clear();
@@ -43,7 +44,19 @@ public class TelaAddFuncionarioController extends Botao{
 
             System.out.println("Ocupação selecionada: " + ocupacaoSelecionada);
 
-            if (ocupacaoSelecionada.equals("Mágico")) {
+            switch (ocupacaoSelecionada) {
+                case TRAPEZISTA -> {
+                    tipoComboBox.setItems(FXCollections.observableArrayList(TrapezistaEnum.values()));
+                }
+                case PALHACO -> {
+                    tipoComboBox.setItems();
+                }
+                case MAGICO -> {
+
+                }
+            }
+
+            if (ocupacaoSelecionada.equals(OcupacaoEnum.MAGICO)) {
                 tipoComboBox.setItems(FXCollections.observableArrayList("ILUSIONISTA", "INFANTIL", "CLASSICO"));
                 itemComboBox.setItems(FXCollections.observableArrayList("CARTOLA","BARALHO"));
             }
@@ -75,7 +88,7 @@ public class TelaAddFuncionarioController extends Botao{
     @FXML
     private void adicionarFuncionario() {
         
-        String ocupacao = ocupacaoComboBox.getValue();
+        OcupacaoEnum ocupacao = ocupacaoComboBox.getValue();
         String nome = nomeTextField.getText();
         String salarioString = salarioTextField.getText();
         String tipo = tipoComboBox.getValue();
@@ -85,7 +98,7 @@ public class TelaAddFuncionarioController extends Botao{
             return;
         }
 
-        Double salario = 0.0;
+        double salario = 0.0;
 
         try {
             salario = Double.parseDouble(salarioString);
@@ -102,22 +115,21 @@ public class TelaAddFuncionarioController extends Botao{
         
         
         switch (ocupacao) {
-            case "Mágico" -> {
+            case MAGICO -> {
                 MagicoEnum magicoEnum = magicoMap.get(tipo);
                 Magico magico = new Magico(nome, salario, magicoEnum);
                 main.circoAtual.getListaDeFuncionarios().addFuncionario(magico);
             }
-            case "Palhaço" -> {
+            case PALHACO -> {
                 PalhacosEnum palhacosEnum = palhacoMap.get(tipo);
                 Palhaco palhaco = new Palhaco(nome, salario, palhacosEnum);
                 main.circoAtual.getListaDeFuncionarios().addFuncionario(palhaco);
             }
-            case "Trapezista" -> {
+            case TRAPEZISTA -> {
                 TrapezistaEnum trapezistaEnum = trapezistaMap.get(tipo);
                 Trapezista trapezista = new Trapezista(nome, salario, trapezistaEnum);
                 main.circoAtual.getListaDeFuncionarios().addFuncionario(trapezista);
             }
-            default -> { showAlert("Tipo Error", "Selecione o tipo de do sua funcionario"); return; }
         }
 
         showAlert("Funcionario adicionado", "Funcionario foi adicionado com sucesso");

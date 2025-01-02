@@ -12,7 +12,7 @@ import br.ufrn.imd.circusmanager.Storage.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import br.ufrn.imd.circusmanager.Control.Botao;
+import br.ufrn.imd.circusmanager.Control.Tela;
 import br.ufrn.imd.circusmanager.Model.Circus.Circus;
 
 public class Main extends Application {
@@ -24,7 +24,7 @@ public class Main extends Application {
     public int telaAtual = 0;
 
     public Parent[] telas = new Parent[11];
-    public ArrayList<Botao> controles = new ArrayList<>();
+    public ArrayList<Tela> controles = new ArrayList<>();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -37,7 +37,7 @@ public class Main extends Application {
             telas[i] = loader.load();
     
             // Configurar o controlador
-            Botao controller = loader.getController();
+            Tela controller = loader.getController();
             controles.add(controller);
             controller.setMain(this);
         }

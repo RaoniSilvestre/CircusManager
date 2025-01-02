@@ -3,7 +3,7 @@ package br.ufrn.imd.circusmanager.Control;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class TelaCircoMenuController extends Botao {
+public class TelaCircoMenuController extends Tela {
 
     // Referência para o LAbel que exibe o nome do circo
     @FXML
