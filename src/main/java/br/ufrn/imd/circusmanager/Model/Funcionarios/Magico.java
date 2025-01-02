@@ -3,6 +3,7 @@ package br.ufrn.imd.circusmanager.Model.Funcionarios;
 import java.util.ArrayList;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.MagicoEnum;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 
 public class Magico extends Funcionario {
     ArrayList<String> itensMagico;
@@ -24,8 +25,8 @@ public class Magico extends Funcionario {
 
 
     @Override
-    public String getOcupação() {
-        return "";
+    public String getOcupacao() {
+        return OcupacaoEnum.MAGICO.toString();
     }
 
     // getters
@@ -33,7 +34,7 @@ public class Magico extends Funcionario {
         return itensMagico;
     }
 
-    public MagicoEnum getTipo() {
-        return tipo;
+    public String getTipo() {
+        return tipo.toString();
     }
 }

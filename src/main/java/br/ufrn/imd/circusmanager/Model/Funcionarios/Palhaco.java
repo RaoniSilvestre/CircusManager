@@ -2,6 +2,7 @@ package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
 import java.util.ArrayList;
 
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.PalhacosEnum;
 
 public class Palhaco extends Funcionario{
@@ -27,7 +28,12 @@ public class Palhaco extends Funcionario{
         return itensPalhaco;
     }
 
-    public PalhacosEnum getTipo() {
-        return tipo;
+    @Override
+    public String getOcupacao() {
+        return OcupacaoEnum.PALHACO.toString();
+    }
+
+    public String getTipo() {
+        return tipo.toString();
     }
 }

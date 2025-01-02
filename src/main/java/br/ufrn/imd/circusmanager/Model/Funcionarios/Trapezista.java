@@ -3,6 +3,7 @@ package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
 import java.util.ArrayList;
 
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.TrapezistaEnum;
 
 public class Trapezista extends Funcionario{
@@ -27,7 +28,12 @@ public class Trapezista extends Funcionario{
         return itensTrapezista;
     }
 
-    public TrapezistaEnum getTipo() {
-        return tipo;
+    @Override
+    public String getOcupacao() {
+        return OcupacaoEnum.TRAPEZISTA.toString();
+    }
+
+    public String getTipo() {
+        return tipo.toString();
     }
 }
