@@ -15,6 +15,8 @@ public abstract class Tela {
 
     public abstract void atualizar();
 
+    // !TODO Arranjar um jeito de não precisar mais desses maps.
+    // Talvez colocando essa funcionalidade como um método dentro dos enums
     protected Map<String, MagicoEnum> magicoMap = Map.of(
         "ILUSIONISTA", MagicoEnum.ILUSIONISTA,
         "INFANTIL", MagicoEnum.INFANTIL,
