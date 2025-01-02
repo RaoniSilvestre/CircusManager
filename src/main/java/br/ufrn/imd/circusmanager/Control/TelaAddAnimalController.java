@@ -6,10 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class TelaAddAnimalController extends Botao {
+public class TelaAddAnimalController extends Tela {
 
     @FXML
-    private ComboBox<String> especieComboBox;
+    private ComboBox<AnimaisEnum> especieComboBox;
 
     @FXML
     private TextField nomeTextField;
@@ -20,14 +20,12 @@ public class TelaAddAnimalController extends Botao {
     @FXML
     public void initialize() {
         // Define as opções do ComboBox de espécie
-        especieComboBox.setItems(FXCollections.observableArrayList(
-            "LEÃO", "ELEFANTE", "GIRAFA", "ORNITORRINCO"
-        ));
+        especieComboBox.setItems(FXCollections.observableArrayList(AnimaisEnum.values()));
     }
 
     @FXML
     private void adicionarAnimal() {
-        String especieSelecionada = especieComboBox.getValue();
+        AnimaisEnum especieSelecionada = especieComboBox.getValue();
         String nome = nomeTextField.getText();
         String valorManutencaoString = valorManutencaoTextField.getText();
 
@@ -36,7 +34,7 @@ public class TelaAddAnimalController extends Botao {
             return;
         }
 
-        Double valorManutencao;
+        double valorManutencao;
         try {
             valorManutencao = Double.parseDouble(valorManutencaoString);
 
@@ -49,15 +47,8 @@ public class TelaAddAnimalController extends Botao {
             return;
         }
 
-        // Converte a string da espécie para o enum correspondente
-        AnimaisEnum especieEnum = AnimaisEnum.fromString(especieSelecionada);
-        if (especieEnum == null) {
-            showAlert("Erro", "Espécie inválida.");
-            return;
-        }
-
         // Cria o objeto Animal e adiciona ao sistema
-        Animal animal = new Animal(nome, valorManutencao, especieEnum);
+        Animal animal = new Animal(nome, valorManutencao, especieSelecionada);
         main.circoAtual.getListaDeAnimais().addAnimal(animal);
 
         showAlert("Sucesso", "Animal adicionado com sucesso.");
