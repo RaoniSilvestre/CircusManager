@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Tela2Controller extends Botao {
+public class TelaLoginController extends Botao {
 
     @FXML
     private Button criarNovoCircoButton;
@@ -51,5 +51,9 @@ public class Tela2Controller extends Botao {
 
     private boolean verificarCirco(String circo) {
         return false; // Faz o codigo ai mano
+    }
+
+    @Override
+    public void atualizar() {
     }
 }

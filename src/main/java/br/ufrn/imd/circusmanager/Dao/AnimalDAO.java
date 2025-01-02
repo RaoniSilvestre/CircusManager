@@ -18,4 +18,8 @@ public class AnimalDAO {
     public void deleteAnimal(Animal a) {
         this.animais.remove(a);
     }
+
+    public ArrayList<Animal> getAnimais() {
+        return animais;
+    }
 }

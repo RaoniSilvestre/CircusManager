@@ -14,4 +14,13 @@ public class ContaCirco {
         transacoes.add(t);
         balanco+= t.getValor();
     }
+
+    public long getBalanco() {
+        return balanco;
+    }
+
+    public ArrayList<Transacao> getTransacoes() {
+        return transacoes;
+    }
+    
 }

@@ -2,10 +2,9 @@ package br.ufrn.imd.circusmanager.Control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
 import br.ufrn.imd.circusmanager.Model.Circus.*;
 
-public class Tela3Controller extends Botao {
+public class TelaCriarCircoController extends Botao {
 
     @FXML
     private TextField nomeCircoField;
@@ -34,24 +33,18 @@ public class Tela3Controller extends Botao {
 
             System.out.println("Circo criado: " + nomeCirco + ", Saldo: " + saldo);
             Circus circus = new Circus(nomeCirco, saldo);
-            // Salvar Circo no bloco de notas();
+            
+            main.salvarCirco(circus); // Falta implementação
+
             showAlert("Sucesso", "Circo criado com sucesso!");
             
             limpar();
-            //main.showScreen(4, circus);
-            voltar();
+
+            main.showScreen(4, circus);
 
         } catch (NumberFormatException e) {
             showAlert("Erro", "Saldo deve ser um número válido!");
         }
-    }
-
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
     private void limpar() { // Limpar os campos
@@ -64,4 +57,7 @@ public class Tela3Controller extends Botao {
         limpar();
         super.voltar();
     }
+
+    @Override
+    public void atualizar() {}
 }
