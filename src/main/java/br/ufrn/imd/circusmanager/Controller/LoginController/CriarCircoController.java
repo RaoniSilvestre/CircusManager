@@ -1,8 +1,9 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.LoginController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import br.ufrn.imd.circusmanager.Model.Circus.*;
+import javafx.scene.control.TextField;
 
 public class CriarCircoController extends Tela {
 
@@ -11,7 +12,6 @@ public class CriarCircoController extends Tela {
 
     @FXML
     private TextField saldoCircoField;
-
 
     @FXML
     private void criarCirco() {
@@ -33,7 +33,8 @@ public class CriarCircoController extends Tela {
 
             System.out.println("Circo criado: " + nomeCirco + ", Saldo: " + saldo);
             Circus circus = new Circus(nomeCirco, saldo);
-            
+
+            // !TODO tirar responsabilidade do main
             main.salvarCirco(circus); // Falta implementação
 
             showAlert("Sucesso", "Circo criado com sucesso!");
@@ -47,9 +48,9 @@ public class CriarCircoController extends Tela {
         }
     }
 
-    private void limpar() { // Limpar os campos
-        nomeCircoField.clear();
-        saldoCircoField.clear();
+    private void limpar() {
+        this.nomeCircoField.clear();
+        this.saldoCircoField.clear();
     }
 
     @Override

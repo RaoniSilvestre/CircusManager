@@ -1,26 +1,25 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios.Enums;
 
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Magico;
+
 public enum MagicoEnum {
-    ILUSIONISTA("Ilusionista"),
-    INFANTIL("Infantil"),
-    CLASSICO("Classico");
+    ILUSIONISTA,
+    INFANTIL,
+    CLASSICO;
 
-    private final String descricao;
-
-    MagicoEnum(String descricao) {
-        this.descricao = descricao;
+    @Override
+    public String toString() {
+        return switch(this) {
+            case CLASSICO -> "Clássico";
+            case INFANTIL -> "Infantil";
+            case ILUSIONISTA -> "Ilusionista";
+        };
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public static MagicoEnum fromString(String value) {
-        for (MagicoEnum magicoEnum : values()) {
-            if (magicoEnum.descricao.equalsIgnoreCase(value)) {
-                return magicoEnum;
-            }
-        }
-        throw new IllegalArgumentException("Valor não encontrado: " + value);
+    public static MagicoEnum fromString(String s) throws IllegalArgumentException {
+        return switch (s) {
+            case "Clássico" -> CLASSICO;
+            default -> MagicoEnum.valueOf(s.toUpperCase());
+        };
     }
 }

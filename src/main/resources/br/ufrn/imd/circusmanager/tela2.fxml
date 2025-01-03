@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 
 <StackPane xmlns:fx="http://javafx.com/fxml" 
-        fx:controller="br.ufrn.imd.circusmanager.Controller.LoginController" 
+        fx:controller="br.ufrn.imd.circusmanager.Controller.LoginController.LoginController"
         prefWidth="800" prefHeight="600">
     <children>
         <VBox alignment="CENTER" spacing="15">

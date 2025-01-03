@@ -1,8 +1,9 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.ZooController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import javafx.fxml.*;
 
-public class TelaZooController extends Tela{
+public class TelaZooController extends Tela {
 
     
     @FXML

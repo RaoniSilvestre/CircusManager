@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="br.ufrn.imd.circusmanager.Controller.SimularShowController">
+      fx:controller="br.ufrn.imd.circusmanager.Controller.ShowController.SimularShowController">
 
     <Label text="Show Simulado" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
     <Label fx:id="ingressosVendidosLabel" text="Ingressos vendidos:" />

@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.ZooController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Animais.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -9,7 +10,7 @@ import javafx.scene.control.TextField;
 public class AddAnimalController extends Tela {
 
     @FXML
-    private ComboBox<String> especieComboBox;
+    private ComboBox<AnimalEnum> especieComboBox;
 
     @FXML
     private TextField nomeTextField;
@@ -19,15 +20,12 @@ public class AddAnimalController extends Tela {
 
     @FXML
     public void initialize() {
-        // Define as opções do ComboBox de espécie
-        especieComboBox.setItems(FXCollections.observableArrayList(
-            "LEÃO", "ELEFANTE", "GIRAFA", "ORNITORRINCO"
-        ));
+        especieComboBox.setItems(FXCollections.observableArrayList(AnimalEnum.values()));
     }
 
     @FXML
     private void adicionarAnimal() {
-        String especieSelecionada = especieComboBox.getValue();
+        AnimalEnum especieSelecionada = especieComboBox.getValue();
         String nome = nomeTextField.getText();
         String valorManutencaoString = valorManutencaoTextField.getText();
 
@@ -36,7 +34,7 @@ public class AddAnimalController extends Tela {
             return;
         }
 
-        Double valorManutencao;
+        double valorManutencao;
         try {
             valorManutencao = Double.parseDouble(valorManutencaoString);
 
@@ -49,15 +47,8 @@ public class AddAnimalController extends Tela {
             return;
         }
 
-        // Converte a string da espécie para o enum correspondente
-        AnimaisEnum especieEnum = AnimaisEnum.fromString(especieSelecionada);
-        if (especieEnum == null) {
-            showAlert("Erro", "Espécie inválida.");
-            return;
-        }
-
         // Cria o objeto Animal e adiciona ao sistema
-        Animal animal = new Animal(nome, valorManutencao, especieEnum);
+        Animal animal = new Animal(nome, valorManutencao, especieSelecionada);
         main.circoAtual.getListaDeAnimais().addAnimal(animal);
 
         showAlert("Sucesso", "Animal adicionado com sucesso.");

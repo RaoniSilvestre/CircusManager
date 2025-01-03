@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import javafx.fxml.*;
 
 public class TelaFuncionariosController extends Tela {
@@ -8,7 +9,6 @@ public class TelaFuncionariosController extends Tela {
     private void verListaFuncionarios() {
         main.showScreen(6);
     }
-
 
     @FXML
     private void adicionarFuncionario() {

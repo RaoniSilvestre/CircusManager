@@ -1,27 +1,25 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios.Enums;
 
 public enum TrapezistaEnum {
-    FIXO("Fixo"),
-    VOADOR("Voador"),
-    CASTIN("Castin"),
-    MULTIPLO("Multiplo");
+    FIXO,
+    VOADOR,
+    CASTIN,
+    MULTIPLO;
 
-    private final String descricao;
-
-    TrapezistaEnum(String descricao) {
-        this.descricao = descricao;
+    @Override
+    public String toString() {
+        return switch (this) {
+            case FIXO -> "Fixo";
+            case VOADOR -> "Voador";
+            case CASTIN -> "Castin";
+            case MULTIPLO -> "Múltiplo";
+        };
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public static TrapezistaEnum fromString(String value) {
-        for (TrapezistaEnum trapezistaEnum : values()) {
-            if (trapezistaEnum.descricao.equalsIgnoreCase(value)) {
-                return trapezistaEnum;
-            }
-        }
-        throw new IllegalArgumentException("Valor não encontrado: " + value);
+    public static TrapezistaEnum fromString(String s) throws IllegalArgumentException {
+        return switch (s) {
+            case "Múltiplo" -> MULTIPLO;
+            default -> TrapezistaEnum.valueOf(s);
+        };
     }
 }

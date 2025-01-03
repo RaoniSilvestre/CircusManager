@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.ShowController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Circus.Show;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
