@@ -19,7 +19,7 @@ public class RemoverFuncionarioController extends Tela {
         linha.setSpacing(10);
         linha.setAlignment(Pos.CENTER_LEFT);
 
-        Label nomeLabel = new Label(funcionario.getDescricao());
+        Label nomeLabel = new Label(funcionario.getTipo());
         nomeLabel.setStyle("-fx-font-size: 16px;");
 
         Button removerButton = new Button("X");

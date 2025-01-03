@@ -10,7 +10,6 @@ public class TelaFuncionariosController extends Tela {
         main.showScreen(6);
     }
 
-
     @FXML
     private void adicionarFuncionario() {
         main.showScreen(7);
