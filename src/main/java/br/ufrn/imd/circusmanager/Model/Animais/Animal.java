@@ -3,9 +3,9 @@ package br.ufrn.imd.circusmanager.Model.Animais;
 public class Animal {
     private String nome;
     private Double valorManutencao;
-    private AnimaisEnum tipo;
+    private AnimalEnum tipo;
 
-    public Animal(String nome, Double valorManutencao, AnimaisEnum tipo) {
+    public Animal(String nome, Double valorManutencao, AnimalEnum tipo) {
         this.nome = nome;
         this.valorManutencao = valorManutencao;
         this.tipo = tipo;
@@ -31,11 +31,11 @@ public class Animal {
         this.valorManutencao = valorManutencao;
     }
 
-    public AnimaisEnum getTipo() {
+    public AnimalEnum getTipo() {
         return tipo;
     }
 
-    public void setTipo(AnimaisEnum tipo) {
+    public void setTipo(AnimalEnum tipo) {
         this.tipo = tipo;
     }
 }

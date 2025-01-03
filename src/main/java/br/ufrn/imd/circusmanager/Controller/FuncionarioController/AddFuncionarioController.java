@@ -1,7 +1,8 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
 import java.util.Map;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.*;
 import javafx.collections.FXCollections;
@@ -10,7 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class AddFuncionarioController extends Tela{
+public class AddFuncionarioController extends Tela {
     
     @Override
     public void atualizar() {}

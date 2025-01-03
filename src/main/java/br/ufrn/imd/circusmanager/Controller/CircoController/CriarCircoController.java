@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.CircoController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import br.ufrn.imd.circusmanager.Model.Circus.*;

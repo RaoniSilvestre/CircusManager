@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="br.ufrn.imd.circusmanager.Controller.TelaDadosController">
+      fx:controller="br.ufrn.imd.circusmanager.Controller.CircoController.TelaDadosController">
 
     <Label text="Dados" style="-fx-font-size: 18; -fx-font-weight: bold;" />
 

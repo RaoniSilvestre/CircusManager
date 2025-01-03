@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" fx:controller="br.ufrn.imd.circusmanager.Controller.RemoverFuncionarioController">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" fx:controller="br.ufrn.imd.circusmanager.Controller.FuncionarioController.RemoverFuncionarioController">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>

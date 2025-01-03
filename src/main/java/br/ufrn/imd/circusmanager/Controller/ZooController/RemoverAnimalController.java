@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.ZooController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Animais.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

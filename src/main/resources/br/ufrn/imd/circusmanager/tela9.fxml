@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="br.ufrn.imd.circusmanager.Controller.TelaZooController">
+      fx:controller="br.ufrn.imd.circusmanager.Controller.ZooController.TelaZooController">
     <Label  text="ZOO" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
     <Button text="Ver lista de animais" onAction="#verListaAnimais"/>
     <Button text="Adicionar animal" onAction="#adicionarAnimal"/>

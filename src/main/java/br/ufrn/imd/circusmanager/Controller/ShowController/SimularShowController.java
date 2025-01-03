@@ -1,5 +1,6 @@
-package br.ufrn.imd.circusmanager.Controller;
+package br.ufrn.imd.circusmanager.Controller.ShowController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Animais.Animal;
 import br.ufrn.imd.circusmanager.Model.Circus.Circus;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
@@ -7,7 +8,7 @@ import br.ufrn.imd.circusmanager.Model.Funcionarios.Vendedor;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class SimularShowController extends Tela{
+public class SimularShowController extends Tela {
 
     @FXML
     private Label ingressosVendidosLabel;
