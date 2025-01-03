@@ -10,11 +10,8 @@ public class Trapezista extends Funcionario{
         this.tipo = tipo;
     }
 
-    public String getDescricao() {
-        return String.format("%s - Ocupação: %s - Tipo: %s - Salario: %s - Itens: %s.", getNome(), "Trapezista", getTipo().getDescricao(),  getSalario(), itensToString());
-    }
 
-    public TrapezistaEnum getTipo() {
-        return tipo;
+    public  String getTipo() {
+        return  this.tipo.toString();
     }
 }

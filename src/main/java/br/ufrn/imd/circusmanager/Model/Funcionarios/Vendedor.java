@@ -6,8 +6,8 @@ public class Vendedor extends Funcionario {
         super(nome, salario);
     }
 
-    public String getDescricao() {
-        return String.format("%s - Ocupação: %s - Salario: %s - Itens: %s", getNome(), "Vendendor",  getSalario(), itensToString());
+    public String getTipo() {
+        return "Vendedor";
     }
 
 }

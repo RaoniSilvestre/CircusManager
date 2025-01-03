@@ -11,12 +11,12 @@ public class Magico extends Funcionario {
     }
 
     public String getDescricao() {
-        return String.format("%s - Ocupação: %s - Tipo: %s - Salario: %s - Itens: %s.", getNome(), "Magico", getTipo().getDescricao(),  getSalario(), itensToString());
+        return String.format("%s - Ocupação: %s - Tipo: %s - Salario: %s - Itens: %s.", getNome(), getOcupacacao(), getTipo(),  getSalario(), itensToString());
     }
 
     // getters
 
-    public MagicoEnum getTipo() {
-        return tipo;
+    public String getTipo() {
+        return tipo.toString();
     }
 }

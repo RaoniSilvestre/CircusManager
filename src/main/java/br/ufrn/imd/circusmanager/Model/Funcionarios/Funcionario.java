@@ -1,16 +1,15 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
-import java.util.ArrayList;
-
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
+
+import java.util.ArrayList;
 
 public abstract class Funcionario {
     private ArrayList<String> itens;
     private String nome;
     private double salario;
-    private OcupacaoEnum ocupacaoEnum;
+    private OcupacaoEnum ocupacao;
     
-    public abstract String getDescricao();
 
     Funcionario(String nome, double salario) {
         this.nome = nome;
@@ -29,6 +28,16 @@ public abstract class Funcionario {
         }
         return "Nenhum";
     }
+
+    public String getDescricao() {
+        return String.format("%s - Ocupação: %s - Tipo: %s - Salario: %s - Itens: %s.", getNome(), getOcupacacao(), getTipo(), getSalario(), itensToString());
+    }
+
+    public OcupacaoEnum getOcupacacao() {
+        return this.ocupacao;
+    }
+
+    public abstract String getTipo();
     
     public void addItem(String s) {
         itens.add(s);
