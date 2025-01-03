@@ -15,4 +15,11 @@ public enum TrapezistaEnum {
             case MULTIPLO -> "Múltiplo";
         };
     }
+
+    public static TrapezistaEnum fromString(String s) throws IllegalArgumentException {
+        return switch (s) {
+            case "Múltiplo" -> MULTIPLO;
+            default -> TrapezistaEnum.valueOf(s);
+        };
+    }
 }

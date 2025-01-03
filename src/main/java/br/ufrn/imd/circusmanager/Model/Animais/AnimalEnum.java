@@ -6,11 +6,13 @@ public enum AnimalEnum {
     ORNITORRINCO, // PERRY!
     ELEFANTE,;
 
-    public static AnimalEnum fromString(String especieSelecionada) {
-        if (especieSelecionada.equals("GIRAFA")) return GIRAFA;
-        if (especieSelecionada.equals("LEÃO")) return LEAO;
-        if (especieSelecionada.equals("ORNITORRINCO")) return ORNITORRINCO;
-        return ELEFANTE;
-        
+    @Override
+    public String toString() {
+        return switch (this) {
+            case ORNITORRINCO -> "Ornitorrinco";
+            case ELEFANTE -> "Elefante";
+            case GIRAFA -> "Girafa";
+            case LEAO -> "Leão";
+        };
     }
 }
