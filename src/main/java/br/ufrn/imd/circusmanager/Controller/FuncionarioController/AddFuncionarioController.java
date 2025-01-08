@@ -1,7 +1,6 @@
 package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
 import java.util.Arrays;
-import java.util.Map;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
@@ -118,7 +117,7 @@ public class AddFuncionarioController extends Tela {
             case PALHACO -> new Palhaco(nome, salario, PalhacoEnum.fromString(tipo));
         };
 
-        main.circoAtual.getListaDeFuncionarios().addFuncionario(funcionarioContratado);
+        circus.getListaDeFuncionarios().addFuncionario(funcionarioContratado);
         adicionarItens(funcionarioContratado);
 
         showAlert("Funcionario adicionado", "Funcionario foi adicionado com sucesso");

@@ -23,7 +23,7 @@ public class Main extends Application {
 
     public int telaAtual = 0;
 
-    private int NUMERO_DE_TELAS = 15;
+    private int NUMERO_DE_TELAS = 17;
 
     public Parent[] telas = new Parent[NUMERO_DE_TELAS];
     public ArrayList<Tela> controles = new ArrayList<>();

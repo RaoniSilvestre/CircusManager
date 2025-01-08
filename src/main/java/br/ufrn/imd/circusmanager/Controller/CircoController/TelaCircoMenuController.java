@@ -36,19 +36,14 @@ public class TelaCircoMenuController extends Tela {
     }
 
     @FXML
-    private void simularShow() {
+    private void show() {
         main.showScreen(14);
-    }
-
-    @FXML
-    private void cadastrarShow() {
-        main.showScreen(15);
     }
 
     // Atualizar a Interface
     public void atualizar() {
-        saldoLabel.setText("Saldo: $" + main.getCircoAtual().getConta().getBalanco());
-        circusLabel.setText("Circo: " + main.getCircoAtual().getNome());
+        saldoLabel.setText("Saldo: $" + circus.getConta().getBalanco());
+        circusLabel.setText("Circo: " + circus.getNome());
     }
     
 }

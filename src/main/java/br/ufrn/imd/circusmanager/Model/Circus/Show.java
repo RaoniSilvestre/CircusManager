@@ -9,7 +9,7 @@ public class Show {
     private int algodoesDocesVendidos;
     private int brinquedosVendidos;
     private double custosTotais;
-    private double Lucro;
+    private double lucro;
     private LocalDate data;
 
     public Show(String nome, int totalDeVisitantes, int pipocasVendidas, int algodoesDocesVendidos,
@@ -20,10 +20,13 @@ public class Show {
         this.algodoesDocesVendidos = algodoesDocesVendidos;
         this.brinquedosVendidos = brinquedosVendidos;
         this.custosTotais = custosTotais;
-        Lucro = lucro;
+        this.lucro = lucro;
         this.data = data;
     }
 
+    public String getDescricao() {
+        return (nome + " - Visitantes: " + totalDeVisitantes + " - Custos: "+ custosTotais + " - Lucro: " + lucro + " - Data: " + data.toString());
+    }
     
     public int getTotalDeVisitantes() {
         return totalDeVisitantes;
@@ -56,10 +59,10 @@ public class Show {
         this.custosTotais = custosTotais;
     }
     public double getLucro() {
-        return Lucro;
+        return lucro;
     }
     public void setLucro(double lucro) {
-        Lucro = lucro;
+        this.lucro = lucro;
     }
     public LocalDate getData() {
         return data;

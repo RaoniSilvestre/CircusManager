@@ -34,7 +34,7 @@ public class RemoverAnimalController extends Tela {
         // Lógica para remover o funcionário do sistema
         System.out.println("Animal removido: " + animal.getNome());
 
-        main.getCircoAtual().getListaDeAnimais().deleteAnimal(animal);
+        circus.getListaDeAnimais().deleteAnimal(animal);
 
         atualizar();
     }
@@ -42,7 +42,7 @@ public class RemoverAnimalController extends Tela {
     @Override
     public void atualizar() {
         animaisVBox.getChildren().clear();
-        for (Animal animal : main.getCircoAtual().getListaDeAnimais().getAnimais()) {
+        for (Animal animal : circus.getListaDeAnimais().getAnimais()) {
             HBox linha = criarLinhaAnimal(animal);
             animaisVBox.getChildren().add(linha);
         }

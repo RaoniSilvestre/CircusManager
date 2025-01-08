@@ -32,7 +32,7 @@ public class SimularShowController extends Tela {
     private Label lucroLabel;
 
     public void atualizar() {
-        Circus circoAtual = main.getCircoAtual();
+        Circus circoAtual = circus;
 
         int totalDeAnimadores = 0;
         int vendedoresDeAlgodaoDoce = 0;

@@ -71,7 +71,7 @@ public class CadastrarShowController extends Tela {
     private void registrar() {
         try {
             // Nome do show baseado no tamanho da lista
-            String nomeDoShow = "Show" + main.getCircoAtual().getListaDeShows().getShows().size();
+            String nomeDoShow = "Show" + circus.getListaDeShows().getShows().size();
 
             // Conversão dos campos numéricos
             int totalVisitantes = Integer.parseInt(totalVisitantesField.getText());
@@ -96,10 +96,10 @@ public class CadastrarShowController extends Tela {
 
             // Criação do objeto Show
             Show show = new Show(nomeDoShow, totalVisitantes, pipocasVendidas, algodoesDocesVendidos, brinquedosVendidos, custosTotais, lucro, data);
-            main.getCircoAtual().getListaDeShows().addShow(show);
+            circus.getListaDeShows().addShow(show);
 
             Transacao transacao = new Transacao(nomeDoShow, TransacaoEnum.APRESENTACOES, lucro);
-            main.circoAtual.getConta().addTransacao(transacao);
+            circus.getConta().addTransacao(transacao);
             // Exibir mensagem de sucesso
             showAlert("Show registrado", "O show foi registrado com sucesso.");
 
