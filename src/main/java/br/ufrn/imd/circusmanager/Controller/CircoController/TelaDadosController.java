@@ -28,7 +28,7 @@ public class TelaDadosController extends Tela {
     private Label funcionarioMaisAntigoLabel;
 
     public void atualizar() {
-        Circus circoAtual = main.getCircoAtual();
+        Circus circoAtual = circus;
         double custoTotalMensal = 0;
         int totalDeItens = 0;
         String funcionarioMaisAntigo = "Sem Funcionarios";

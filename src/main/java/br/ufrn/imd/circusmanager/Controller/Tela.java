@@ -37,7 +37,7 @@ public abstract class Tela {
         if (main.telaAtual <= 3) {
             main.showScreen(main.telaAtual - 1);
         } 
-        else if (main.telaAtual == 5 || main.telaAtual == 9) {
+        else if (main.telaAtual == 5 || main.telaAtual == 9 || main.telaAtual == 14 || main.telaAtual == 13) {
             main.showScreen(4);
         }
         else if (main.telaAtual <= 8) {
@@ -45,7 +45,10 @@ public abstract class Tela {
         }
         else if (main.telaAtual <= 12) {
             main.showScreen(9);
-        } 
+        }
+        else if (main.telaAtual <= 17) {
+            main.showScreen(14);
+        }
         else {
             main.showScreen(4);
         }

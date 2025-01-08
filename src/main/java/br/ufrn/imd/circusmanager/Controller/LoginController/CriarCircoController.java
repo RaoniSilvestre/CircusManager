@@ -32,16 +32,16 @@ public class CriarCircoController extends Tela {
             }
 
             System.out.println("Circo criado: " + nomeCirco + ", Saldo: " + saldo);
-            Circus circus = new Circus(nomeCirco, saldo);
+            Circus circusNovo = new Circus(nomeCirco, saldo);
 
             // !TODO tirar responsabilidade do main
-            main.salvarCirco(circus); // Falta implementação
+            main.salvarCirco(circusNovo); // Falta implementação
 
             showAlert("Sucesso", "Circo criado com sucesso!");
             
             limpar();
 
-            main.showScreen(4, circus);
+            main.showScreen(4, circusNovo);
 
         } catch (NumberFormatException e) {
             showAlert("Erro", "Saldo deve ser um número válido!");

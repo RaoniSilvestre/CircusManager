@@ -19,9 +19,8 @@
     
     <Button text="Funcionários" onAction="#funcionarios" />
     <Button text="Zoo" onAction="#zoo" />
+    <Button text="Show's" onAction="#show" />
     <Button text="Dados" onAction="#dados" />
-    <Button text="Simular Show" onAction="#simularShow" />
-    <Button text="Cadastrar Show" onAction="#cadastrarShow" />
     <Button text="Sair do circo" onAction="#sairDoCirco" />
 
     <!-- Botão Sair -->

@@ -34,7 +34,7 @@ public class RemoverFuncionarioController extends Tela {
         // Lógica para remover o funcionário do sistema
         System.out.println("Funcionário removido: " + funcionario.getNome());
 
-        main.getCircoAtual().getListaDeFuncionarios().deleteFuncionario(funcionario);
+        circus.getListaDeFuncionarios().deleteFuncionario(funcionario);
 
         atualizar();
     }
@@ -42,7 +42,7 @@ public class RemoverFuncionarioController extends Tela {
     @Override
     public void atualizar() {
         funcionariosVBox.getChildren().clear();
-        for (Funcionario funcionario : main.getCircoAtual().getListaDeFuncionarios().getFuncionarios()) {
+        for (Funcionario funcionario : circus.getListaDeFuncionarios().getFuncionarios()) {
             HBox linha = criarLinhaFuncionario(funcionario);
             funcionariosVBox.getChildren().add(linha);
         }
