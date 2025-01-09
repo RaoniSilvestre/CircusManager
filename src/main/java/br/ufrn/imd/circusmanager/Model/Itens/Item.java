@@ -1,11 +1,13 @@
 package br.ufrn.imd.circusmanager.Model.Itens;
 
+import br.ufrn.imd.circusmanager.Model.Itens.Enums.ItemEnum;
+
 public class Item {
-    private String nome;
+    private ItemEnum tipo;
     private Long valor;
 
-    protected Item(String nome, Long valor) {
-        this.nome = nome;
+    protected Item(ItemEnum tipo, Long valor) {
+        this.tipo = tipo;
         this.valor = valor;
     }
 
@@ -17,11 +19,16 @@ public class Item {
         this.valor = valor;
     }
 
-    public String getNome() {
-        return nome;
+    public ItemEnum getTipo() {
+        return tipo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTipo(ItemEnum tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return tipo.toString() + " (R$ " + valor + ")";
     }
 }
