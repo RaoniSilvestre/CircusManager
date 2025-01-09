@@ -13,7 +13,7 @@ public class TelaListaAnimaisController extends Tela {
     public void inicializarLista() {
         listaAnimais.getItems().clear();
     
-        for (Animal animal : circus.getListaDeAnimais().getAnimais()) {
+        for (Animal animal : circus.getListaDeAnimais()) {
             listaAnimais.getItems().add(animal.getDescricao());
         }
     }

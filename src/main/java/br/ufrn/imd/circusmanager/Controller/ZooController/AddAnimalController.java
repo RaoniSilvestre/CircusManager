@@ -49,7 +49,7 @@ public class AddAnimalController extends Tela {
 
         // Cria o objeto Animal e adiciona ao sistema
         Animal animal = new Animal(nome, valorManutencao, especieSelecionada);
-        circus.getListaDeAnimais().addAnimal(animal);
+        circus.addAnimal(animal);
 
         showAlert("Sucesso", "Animal adicionado com sucesso.");
         voltar();

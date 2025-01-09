@@ -33,19 +33,19 @@ public class TelaDadosController extends Tela {
         int totalDeItens = 0;
         String funcionarioMaisAntigo = "Sem Funcionarios";
 
-        for (Funcionario funcionario :  circoAtual.getListaDeFuncionarios().getFuncionarios()) {
+        for (Funcionario funcionario :  circoAtual.getListaDeFuncionarios()) {
             custoTotalMensal += funcionario.getSalario();
             if (funcionarioMaisAntigo.equals("Sem Funcionarios")) {
                 funcionarioMaisAntigo = funcionario.getNome();
             }
             totalDeItens += funcionario.getItens().size();
         }
-        for (Animal animal :  circoAtual.getListaDeAnimais().getAnimais()) {
+        for (Animal animal :  circoAtual.getListaDeAnimais()) {
             custoTotalMensal += animal.getValorManutencao();
         }
         
-        numeroFuncionariosLabel.setText("Numero de funcionarios: " +  circoAtual.getListaDeFuncionarios().getFuncionarios().size());
-        quantidadeAnimaisLabel.setText("Quantidade de animais: " +  circoAtual.getListaDeAnimais().getAnimais().size());
+        numeroFuncionariosLabel.setText("Numero de funcionarios: " +  circoAtual.getListaDeFuncionarios().size());
+        quantidadeAnimaisLabel.setText("Quantidade de animais: " +  circoAtual.getListaDeAnimais().size());
         custoTotalMensalLabel.setText("Custo total mensal: R$ " + custoTotalMensal);
         totalItensLabel.setText("Total de itens: " + totalDeItens);
         funcionarioMaisAntigoLabel.setText("Funcionario mais antigo: " + funcionarioMaisAntigo);

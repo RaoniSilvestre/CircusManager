@@ -1,9 +1,17 @@
 package br.ufrn.imd.circusmanager.Model.Circus;
 
 import br.ufrn.imd.circusmanager.Dao.*;
+import br.ufrn.imd.circusmanager.Model.Animais.Animal;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.ContaCirco;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Vendedor;
+import br.ufrn.imd.circusmanager.Model.Itens.Item;
+import br.ufrn.imd.circusmanager.Model.Itens.Vendedores;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Circus {
     private String nome;
@@ -26,6 +34,49 @@ public class Circus {
         listaDeShows = new ShowDAO();
     }
 
+    public double getCustoFuncionarios() {
+        double custoDosFuncionarios = 0.0;
+
+        for (Funcionario funcionario : this.getListaDeFuncionarios()) {
+            custoDosFuncionarios += funcionario.getSalario();
+        }
+
+        return custoDosFuncionarios;
+    }
+
+    public int getQuantidadeAnimadores() {
+        return this.getListaDeFuncionarios().size();
+    }
+
+    public double getCustoAnimais() {
+        return this.getListaDeAnimais()
+                .stream()
+                .map(Animal::getValorManutencao)
+                .reduce(0.0, Double::sum);
+    }
+
+    public Vendedores getVendedores() {
+        int vendedorDePipoca = 0;
+        int vendedorDeAlgodaoDoce = 0;
+        int vendedorDeBrinquedo = 0;
+
+        List<Vendedor> vendedores = this.getListaDeFuncionarios()
+                .stream()
+                .filter(f -> f instanceof Vendedor)
+                .map(f -> (Vendedor) f)
+                .toList();
+
+        for (Vendedor vendedor : vendedores) {
+            Vendedores v = vendedor.getVendedores();
+
+            vendedorDePipoca += v.vendedoresDePipoca();
+            vendedorDeAlgodaoDoce = v.vendedoresDeAlgodaoDoce();
+            vendedorDeBrinquedo = v.vendedoresDeBrinquedo();
+        }
+
+        return new Vendedores(vendedorDePipoca, vendedorDeAlgodaoDoce, vendedorDeBrinquedo);
+    }
+
     public String getNome() {
         return nome;
     }
@@ -34,12 +85,28 @@ public class Circus {
         return conta;
     }
 
-    public FuncionarioDAO getListaDeFuncionarios() {
-        return listaDeFuncionarios;
+    public ArrayList<Funcionario> getListaDeFuncionarios() {
+        return listaDeFuncionarios.getFuncionarios();
     }
 
-    public AnimalDAO getListaDeAnimais() {
-        return listaDeAnimais;
+    public void deleteFuncionario(Funcionario f) {
+        this.listaDeFuncionarios.deleteFuncionario(f);
+    }
+
+    public void addAnimal(Animal a) {
+        listaDeAnimais.addAnimal(a);
+    }
+
+    public ArrayList<Animal> getListaDeAnimais() {
+        return listaDeAnimais.getAnimais();
+    }
+
+    public void deleteAnimal(Animal a) {
+        listaDeAnimais.deleteAnimal(a);
+    }
+
+    public void addFuncionario(Funcionario f) {
+        this.listaDeFuncionarios.addFuncionario(f);
     }
 
     public ShowDAO getListaDeShows() {
