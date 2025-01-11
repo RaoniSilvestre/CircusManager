@@ -1,10 +1,8 @@
 package br.ufrn.imd.circusmanager.Controller.ShowController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
-import br.ufrn.imd.circusmanager.Model.Animais.Animal;
 import br.ufrn.imd.circusmanager.Model.Circus.Circus;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Vendedor;
+import br.ufrn.imd.circusmanager.Model.Itens.Vendedores;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -34,43 +32,19 @@ public class SimularShowController extends Tela {
     public void atualizar() {
         Circus circoAtual = circus;
 
-        int totalDeAnimadores = 0;
-        int vendedoresDeAlgodaoDoce = 0;
-        int vendedoresDePipoca = 0;
-        int vendedoresDeBrinquedo = 0;
 
-        double custoDosFuncionarios = 0;
-        for (Funcionario funcionario : circoAtual.getListaDeFuncionarios().getFuncionarios()) {
+        double custoDosAnimais = circus.getCustoAnimais();
+        double custoDosFuncionarios = circoAtual.getCustoFuncionarios();
+        int totalDeAnimadores = circoAtual.getQuantidadeAnimadores();
 
-            if (funcionario instanceof Vendedor) {
-                for (String item : funcionario.getItens()){
-                    if (item.equals("Pipoca")) {
-                        vendedoresDePipoca ++;
-                    }
-                    else if (item.equals("Algodão doce")) {
-                        vendedoresDeAlgodaoDoce ++;
-                    }
-                    else if (item.equals("vendedoresDeBrinquedo")){
-                        vendedoresDeAlgodaoDoce ++;
-                    }
-                }
-            }
-
-            else totalDeAnimadores++;
-            custoDosFuncionarios += funcionario.getSalario();
-        }
-        
-        double custoDosAnimais = 0;
-        for (Animal animal : circoAtual.getListaDeAnimais().getAnimais()) {
-            custoDosAnimais += animal.getValorManutencao();
-        }
+        Vendedores vendedores = circoAtual.getVendedores();
 
         int numeroAleatorio = 4 + (int)(Math.random() * ((16 - 4) + 1));
-        int totalDeIngressos = (int) (totalDeAnimadores*numeroAleatorio + circoAtual.getListaDeAnimais().getAnimais().size()*numeroAleatorio*1.5);
+        int totalDeIngressos = (int) (totalDeAnimadores*numeroAleatorio + circoAtual.getListaDeAnimais().size()*numeroAleatorio*1.5);
         
-        int totalDeAlgodoesVendidos = vendedoresDeAlgodaoDoce * (int)(Math.random() * 11);
-        int totalDePipocasVendidas = vendedoresDePipoca * (int)(Math.random() * 11);
-        int totalDeBrinquedosVendidos = vendedoresDeBrinquedo * (int)(Math.random() * 11);
+        int totalDeAlgodoesVendidos = vendedores.vendedoresDeAlgodaoDoce() * (int)(Math.random() * 11);
+        int totalDePipocasVendidas = vendedores.vendedoresDePipoca() * (int)(Math.random() * 11);
+        int totalDeBrinquedosVendidos = vendedores.vendedoresDeBrinquedo() * (int)(Math.random() * 11);
 
         double totalArrecadado = totalDeIngressos * 10 + totalDeAlgodoesVendidos*5 + totalDePipocasVendidas*3 + totalDeBrinquedosVendidos*10;
 

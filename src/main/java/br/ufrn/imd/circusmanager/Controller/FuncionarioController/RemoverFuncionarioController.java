@@ -19,7 +19,7 @@ public class RemoverFuncionarioController extends Tela {
         linha.setSpacing(10);
         linha.setAlignment(Pos.CENTER_LEFT);
 
-        Label nomeLabel = new Label(funcionario.getTipo());
+        Label nomeLabel = new Label(funcionario.getDescricao());
         nomeLabel.setStyle("-fx-font-size: 16px;");
 
         Button removerButton = new Button("X");
@@ -34,7 +34,7 @@ public class RemoverFuncionarioController extends Tela {
         // Lógica para remover o funcionário do sistema
         System.out.println("Funcionário removido: " + funcionario.getNome());
 
-        circus.getListaDeFuncionarios().deleteFuncionario(funcionario);
+        circus.deleteFuncionario(funcionario);
 
         atualizar();
     }
@@ -42,7 +42,7 @@ public class RemoverFuncionarioController extends Tela {
     @Override
     public void atualizar() {
         funcionariosVBox.getChildren().clear();
-        for (Funcionario funcionario : circus.getListaDeFuncionarios().getFuncionarios()) {
+        for (Funcionario funcionario : circus.getListaDeFuncionarios()) {
             HBox linha = criarLinhaFuncionario(funcionario);
             funcionariosVBox.getChildren().add(linha);
         }

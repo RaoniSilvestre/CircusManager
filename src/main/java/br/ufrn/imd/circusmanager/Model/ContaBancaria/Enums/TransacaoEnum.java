@@ -6,4 +6,5 @@ public enum TransacaoEnum {
     FUNCIONARIOS,
     MERCADORIAS,
     APRESENTACOES,
+    INDEFINIDO,
 }

@@ -2,22 +2,38 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 
 <StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.ufrn.imd.circusmanager.Controller.LoginController.CriarCircoController">
     <children>
+
+        <!-- Imagem de fundo -->
+        <ImageView fx:id="imagemFundo" fitWidth="800" fitHeight="600" preserveRatio="false" />
+
+        <!-- Fundo cinza semitransparente -->
+        <Rectangle width="500" height="350" arcWidth="20" arcHeight="20"
+                   style="-fx-fill: rgba(128, 128, 128, 0.7);" />
+
+        <!-- Conteúdo principal -->
         <VBox alignment="CENTER" spacing="20">
             <!-- Título -->
-            <Label text="Criar Circo" style="-fx-font-size: 20; -fx-underline: true;" />
+            <Label text="Criar Circo" style="-fx-font-size: 35px; -fx-font-weight: bold; -fx-text-fill: white; 
+                      -fx-effect: dropshadow(gaussian, black, 10, 0.7, 2, 2); -fx-underline: true;" />
 
             <!-- Nome do Circo -->
             <HBox alignment="CENTER" spacing="10">
-                <Label text="Nome do circo:" />
+                <Label text="Nome do circo:" 
+                       style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white; 
+                              -fx-effect: dropshadow(gaussian, black, 10, 0.7, 2, 2);" />
                 <TextField fx:id="nomeCircoField" prefWidth="200" />
             </HBox>
 
             <!-- Saldo do Circo -->
             <HBox alignment="CENTER" spacing="10">
-                <Label text="Saldo do circo:" />
+                <Label text="Saldo do circo:" 
+                       style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white; 
+                              -fx-effect: dropshadow(gaussian, black, 10, 0.7, 2, 2);" />
                 <TextField fx:id="saldoCircoField" prefWidth="200" />
             </HBox>
 

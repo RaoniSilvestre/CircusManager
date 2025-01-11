@@ -1,7 +1,5 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios.Enums;
 
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Magico;
-
 public enum OcupacaoEnum {
     MAGICO,
     VENDEDOR,

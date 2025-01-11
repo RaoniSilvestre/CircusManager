@@ -1,10 +1,5 @@
 package br.ufrn.imd.circusmanager.Model.Circus;
 
-import br.ufrn.imd.circusmanager.Dao.*;
-import br.ufrn.imd.circusmanager.Model.ContaBancaria.ContaCirco;
-import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
-import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
-
 public class Circus {
     private int id;
     private int circoId;
@@ -40,4 +35,5 @@ public class Circus {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 }

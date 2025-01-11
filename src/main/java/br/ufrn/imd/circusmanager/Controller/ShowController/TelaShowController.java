@@ -1,11 +1,16 @@
 package br.ufrn.imd.circusmanager.Controller.ShowController;
 
-import br.ufrn.imd.circusmanager.Controller.Tela;
+import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
 import javafx.fxml.*;
 
-public class TelaShowController extends Tela {
+public class TelaShowController extends TelaComImagem {
 
-    
+    @FXML
+    public void initialize() {
+        caminho = "/br/ufrn/imd/circusmanager/Imagens/TelaShow.png";
+        super.initialize();
+    }
+
     @FXML
     private void registrarShow() {
         main.showScreen(15);

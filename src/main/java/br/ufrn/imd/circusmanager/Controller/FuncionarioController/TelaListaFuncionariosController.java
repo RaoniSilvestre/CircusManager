@@ -13,7 +13,7 @@ public class TelaListaFuncionariosController extends Tela {
     public void inicializarLista() {
         listaFuncionarios.getItems().clear();
     
-        for (Funcionario funcionario : circus.getListaDeFuncionarios().getFuncionarios()) {
+        for (Funcionario funcionario : circus.getListaDeFuncionarios()) {
             listaFuncionarios.getItems().add(funcionario.getDescricao());
         }
     }
