@@ -34,7 +34,23 @@ public class CircoDAO implements GenericDAO<Circus> {
     }
 
     public Circus buscarPorNome(String nome) {
+        String sql = "SELECT * FROM circo WHERE nome = ?";
+        Circus circo = null;
 
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, nome);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    circo = new Circus(rs.getInt("id"), rs.getInt("contaId"), rs.getString("nome"));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return circo;
     }
 
     @Override
