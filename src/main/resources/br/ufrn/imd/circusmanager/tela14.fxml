@@ -2,12 +2,27 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="br.ufrn.imd.circusmanager.Controller.ShowController.TelaShowController">
-    <Label  text="Show's" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
-    <Button text="Registrar show" onAction="#registrarShow"/>
-    <Button text="Simular show" onAction="#simularShow"/>
-    <Button text="Ver historico de show" onAction="#verHistoricoDeShow"/>
-    <Button text="Voltar" onAction="#voltar"/>
-</VBox>
+<StackPane xmlns:fx="http://javafx.com/fxml"
+  fx:controller="br.ufrn.imd.circusmanager.Controller.ShowController.TelaShowController">
+
+  <!-- Imagem de fundo -->
+  <ImageView fx:id="imagemFundo" fitWidth="800" fitHeight="600" preserveRatio="false" />
+
+  <!-- Fundo cinza semitransparente -->
+  <Rectangle width="500" height="400" arcWidth="20" arcHeight="20"
+              style="-fx-fill: rgba(128, 128, 128, 0.85);" />
+
+  <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        
+      <Label  text="Show's" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white; 
+                      -fx-effect: dropshadow(gaussian, black, 10, 0.7, 2, 2);" />
+      
+      <Button text="Registrar show" onAction="#registrarShow"/>
+      <Button text="Simular show" onAction="#simularShow"/>
+      <Button text="Ver historico de show" onAction="#verHistoricoDeShow"/>
+      <Button text="Voltar" onAction="#voltar"/>
+  </VBox>
+</StackPane>

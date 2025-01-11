@@ -1,28 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="br.ufrn.imd.circusmanager.Controller.CircoController.TelaCircoMenuController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="br.ufrn.imd.circusmanager.Controller.CircoController.TelaCircoMenuController">
 
-    <!-- Título -->
-    <Label fx:id="circusLabel" text="Circo" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <!-- Imagem de fundo -->
+    <ImageView fx:id="imagemFundo" fitWidth="800" fitHeight="600" preserveRatio="false" />
+
+    <!-- Fundo cinza semitransparente -->
+        <Rectangle width="400" height="600" arcWidth="20" arcHeight="20"
+                   style="-fx-fill: rgba(128, 128, 128, 0.7);" />
     
-    <!-- Saldo -->
-    <Label fx:id="saldoLabel" text="Saldo: $0.00" style="-fx-font-size: 18px;" />
+    <!-- Conteúdo principal -->
+    <VBox alignment="CENTER" spacing="20.0" style="-fx-padding: 20;">
+        
+        <!-- Título -->
+        <Label fx:id="circusLabel" text="Circo"
+               style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white; 
+                      -fx-effect: dropshadow(gaussian, black, 10, 0.7, 2, 2);" />
 
-    <!-- Botões de opções -->
-    
-    <Button text="Funcionários" onAction="#funcionarios" />
-    <Button text="Zoo" onAction="#zoo" />
-    <Button text="Show's" onAction="#show" />
-    <Button text="Dados" onAction="#dados" />
-    <Button text="Sair do circo" onAction="#sairDoCirco" />
+        <!-- Saldo -->
+        <VBox alignment="CENTER" spacing="10">
+            <HBox alignment="CENTER" spacing="10">
+                <Label fx:id="saldoLabel" text="Saldo: $0.00" 
+                        style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white; 
+                            -fx-effect: dropshadow(gaussian, black, 10, 0.7, 2, 2);" />
+                
+                <Button fx:id="editarSaldoButton" text="Editar" onAction="#editarSaldo" />
+            </HBox>
+            <HBox alignment="CENTER" spacing="10" visible="false" fx:id="editSaldoContainer">
+                <TextField fx:id="saldoTextField" promptText="Novo Saldo" />
+                <Button fx:id="confirmarButton" text="Confirmar" onAction="#confirmarSaldo" />
+                <Button fx:id="cancelarButton" text="Cancelar" onAction="#cancelarEdicaoSaldo" />
+            </HBox>
+        </VBox>
 
-    <!-- Botão Sair -->
-    <Button text="Sair" onAction="#sairDoSistema"/>
-</VBox>
+        <!-- Botões de opções -->
+        <Button text="Funcionários" onAction="#funcionarios"   style="-fx-font-size: 12px; "/>
+        <Button text="Animais" onAction="#zoo"                 style="-fx-font-size: 12px; "/>
+        <Button text="Show's" onAction="#show"                 style="-fx-font-size: 12px; "/>
+        <Button text="Dados" onAction="#dados"                 style="-fx-font-size: 12px; "/>
+        <Button text="Sair do circo" onAction="#sairDoCirco"   style="-fx-font-size: 12px;" />
+
+        <!-- Botão Sair -->
+        <Button text="Sair" onAction="#sairDoSistema"          style="-fx-font-size: 12px;" />
+    </VBox>
+</StackPane>

@@ -1,10 +1,16 @@
 package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
-import br.ufrn.imd.circusmanager.Controller.Tela;
+import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
 import javafx.fxml.*;
 
-public class TelaFuncionariosController extends Tela {
-    
+public class TelaFuncionariosController extends TelaComImagem {
+
+    @FXML
+    public void initialize() {
+        caminho = "/br/ufrn/imd/circusmanager/Imagens/TelaFuncionarios.png";
+        super.initialize();
+    }
+
     @FXML
     private void verListaFuncionarios() {
         main.showScreen(6);

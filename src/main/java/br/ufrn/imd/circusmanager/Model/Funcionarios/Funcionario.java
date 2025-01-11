@@ -11,9 +11,10 @@ public abstract class Funcionario {
     private OcupacaoEnum ocupacao;
     
 
-    Funcionario(String nome, double salario) {
+    Funcionario(String nome, double salario, OcupacaoEnum ocupacao) {
         this.nome = nome;
         this.salario = salario;
+        this.ocupacao = ocupacao;
         itens = new ArrayList<>();
     }
 
@@ -30,7 +31,7 @@ public abstract class Funcionario {
     }
 
     public String getDescricao() {
-        return String.format("%s - Ocupação: %s - Tipo: %s - Salario: %s - Itens: %s.", getNome(), getOcupacacao(), getTipo(), getSalario(), itensToString());
+        return String.format("%s - Ocupação: %s - Tipo: %s - Salario: %s - Itens: %s.", getNome(), getOcupacacao().toString(), getTipo(), getSalario(), itensToString());
     }
 
     public OcupacaoEnum getOcupacacao() {
