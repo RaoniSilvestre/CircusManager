@@ -28,7 +28,7 @@ public class LoginController extends TelaComImagem {
 
     @FXML
     private void criarNovoCirco() {
-        main.showScreen(3);
+        manager.trocarTela("CriarCircoView.fxml");
     }
 
     @FXML

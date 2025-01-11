@@ -16,10 +16,10 @@ public class TelaInicialController extends TelaComImagem {
     private Label welcomeText;
 
     @Override
-    public void atualizar() {return;}
+    public void atualizar() {}
 
     @FXML
     protected void onHelloButtonClick() {
-        main.showScreen(2);
+        manager.trocarTela("LoginView.fxml");
     }
 }

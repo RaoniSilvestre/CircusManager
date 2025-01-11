@@ -5,7 +5,7 @@ import br.ufrn.imd.circusmanager.Model.Animais.Animal;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-public class TelaListaAnimaisController extends Tela {
+public class ListaAnimaisController extends Tela {
     @FXML
     private ListView<String> listaAnimais;
 

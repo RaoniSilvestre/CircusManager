@@ -40,13 +40,13 @@ public class CriarCircoController extends TelaComImagem {
             Circus circusNovo = new Circus(nomeCirco, saldo);
 
             // !TODO tirar responsabilidade do main
-            main.salvarCirco(circusNovo); // Falta implementação
+            manager.salvarCirco(circusNovo); // Falta implementação
 
             showAlert("Sucesso", "Circo criado com sucesso!");
             
             limpar();
-
-            main.showScreen(4, circusNovo);
+            
+            manager.trocarTela("TelaCircoMenuView.fxml", circusNovo);
 
         } catch (NumberFormatException e) {
             showAlert("Erro", "Saldo deve ser um número válido!");

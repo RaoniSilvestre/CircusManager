@@ -62,11 +62,12 @@ public class AddAnimalController extends Tela {
     }
 
     @Override
+    public void atualizar() {}
+    
+    @FXML
     public void voltar() {
         limpar();
         super.voltar();
     }
-
-    @Override
-    public void atualizar() {}
+    
 }

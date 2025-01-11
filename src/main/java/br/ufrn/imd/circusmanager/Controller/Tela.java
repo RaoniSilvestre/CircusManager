@@ -1,13 +1,13 @@
 package br.ufrn.imd.circusmanager.Controller;
 
-import br.ufrn.imd.circusmanager.Main;
 import br.ufrn.imd.circusmanager.Model.Circus.Circus;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public abstract class Tela {
-    protected Main main;
+    protected TelaManager manager;
     protected Circus circus;
+
     public abstract void atualizar();
     
     public void showAlert(String title, String message) {
@@ -18,12 +18,29 @@ public abstract class Tela {
         alert.showAndWait();
     }
 
-    public void setCircus(Circus circus) {
-        this.circus = circus;
-    }
+    @FXML
+    public void voltar() {
 
-    public void setMain(Main main) {
-        this.main = main;
+        String tela = new String();
+
+        if (manager.telaAtual.equals("CriarCircoView.fxml")) {
+            manager.trocarTela("LoginView.fxml");
+            return;
+        }
+        else if (manager.telaAtual.contains("Tela")) {
+            tela = "TelaCircoMenuView.fxml";
+        }
+        else if (manager.telaAtual.contains("Funcionario")) {
+            tela = "TelaFuncionariosView.fxml";
+        }
+        else if (manager.telaAtual.contains("Anima")) {
+            tela = "TelaZooView.fxml";
+        }
+        else if (manager.telaAtual.contains("Show")) {
+            tela = "TelaShowView.fxml";
+        }
+
+        manager.trocarTela(tela, circus);
     }
 
     @FXML
@@ -32,25 +49,16 @@ public abstract class Tela {
         System.exit(0);
     }
 
-    @FXML
-    public void voltar() {
-        if (main.telaAtual <= 3) {
-            main.showScreen(main.telaAtual - 1);
-        } 
-        else if (main.telaAtual == 5 || main.telaAtual == 9 || main.telaAtual == 14 || main.telaAtual == 13) {
-            main.showScreen(4);
-        }
-        else if (main.telaAtual <= 8) {
-            main.showScreen(5);
-        }
-        else if (main.telaAtual <= 12) {
-            main.showScreen(9);
-        }
-        else if (main.telaAtual <= 17) {
-            main.showScreen(14);
-        }
-        else {
-            main.showScreen(4);
-        }
+    public void setManager(TelaManager manager) {
+        this.manager = manager;
     }
+
+    public Circus getCircus() {
+        return circus;
+    }
+
+    public void setCircus(Circus circus) {
+        this.circus = circus;
+    }
+
 }
