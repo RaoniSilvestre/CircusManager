@@ -9,6 +9,7 @@ public class Trapezista extends Funcionario{
     public Trapezista(String nome, double salario, TrapezistaEnum tipo) {
         super(nome, salario, OcupacaoEnum.TRAPEZISTA);
         this.tipo = tipo;
+        this.ocupacao = OcupacaoEnum.TRAPEZISTA;
     }
 
 

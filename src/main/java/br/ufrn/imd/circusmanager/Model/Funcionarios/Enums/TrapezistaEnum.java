@@ -19,7 +19,7 @@ public enum TrapezistaEnum {
     public static TrapezistaEnum fromString(String s) throws IllegalArgumentException {
         return switch (s) {
             case "Múltiplo" -> MULTIPLO;
-            default -> TrapezistaEnum.valueOf(s);
+            default -> TrapezistaEnum.valueOf(s.toUpperCase());
         };
     }
 }

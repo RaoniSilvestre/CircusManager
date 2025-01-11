@@ -1,14 +1,13 @@
 package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.*;
-import br.ufrn.imd.circusmanager.Model.Itens.Enums.FerramentaMagicoEnum;
-import br.ufrn.imd.circusmanager.Model.Itens.Enums.FerramentaPalhacoEnum;
-import br.ufrn.imd.circusmanager.Model.Itens.Enums.FerramentaTrapezistaEnum;
-import br.ufrn.imd.circusmanager.Model.Itens.Enums.MercadoriaEnum;
+import br.ufrn.imd.circusmanager.Model.Itens.Item;
+import br.ufrn.imd.circusmanager.Model.Itens.ItemFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -29,9 +28,9 @@ public class AddFuncionarioController extends Tela {
     @FXML
     private ComboBox<String> tipoComboBox;
     @FXML
-    private ListView<String> itensListView;
+    private ListView<Item> itensListView;
     @FXML
-    private ComboBox<String> itemComboBox;
+    private ComboBox<Item> itemComboBox;
 
      @FXML
     public void initialize() {
@@ -50,21 +49,21 @@ public class AddFuncionarioController extends Tela {
 
             switch (ocupacaoSelecionada) {
                 case VENDEDOR -> this.updateVendedorComboBox();
-                case MAGICO -> this.updateComboBox(MagicoEnum.values(), FerramentaMagicoEnum.values());
-                case PALHACO -> this.updateComboBox(PalhacoEnum.values(), FerramentaPalhacoEnum.values());
-                case TRAPEZISTA -> this.updateComboBox(TrapezistaEnum.values(), FerramentaTrapezistaEnum.values());
+                case MAGICO -> this.updateComboBox(MagicoEnum.values(), ItemFactory.getMagicoItens());
+                case PALHACO -> this.updateComboBox(PalhacoEnum.values(), ItemFactory.getPalhaçoItens());
+                case TRAPEZISTA -> this.updateComboBox(TrapezistaEnum.values(), ItemFactory.getTrapezistaItens());
             }
         });
     }
 
     private void updateVendedorComboBox() {
         tipoComboBox.setDisable(true);
-        itemComboBox.setItems(mapListToListString(MercadoriaEnum.values()));
+        itemComboBox.setItems(FXCollections.observableArrayList(ItemFactory.getVendedorItens()));
     }
 
-    private <A, B> void updateComboBox(A[] tipos, B[] ferramentas) {
+    private <A> void updateComboBox(A[] tipos, ArrayList<Item> ferramentas) {
         tipoComboBox.setItems(mapListToListString(tipos));
-        itemComboBox.setItems(mapListToListString(ferramentas));
+        itemComboBox.setItems(FXCollections.observableArrayList(ferramentas));
     }
 
     private <T> ObservableList<String> mapListToListString(T[] list) {
@@ -73,9 +72,9 @@ public class AddFuncionarioController extends Tela {
 
     @FXML
     private void adicionarItem() {
-        String itemSelecionado = itemComboBox.getValue();
+        Item itemSelecionado = itemComboBox.getValue();
         if (itemSelecionado != null) {
-            for (String item : itensListView.getItems()){
+            for (Item item : itensListView.getItems()){
                 if (item.equals(itemSelecionado))
                     return;
             }
@@ -117,16 +116,18 @@ public class AddFuncionarioController extends Tela {
             case PALHACO -> new Palhaco(nome, salario, PalhacoEnum.fromString(tipo));
         };
 
-        circus.getListaDeFuncionarios().addFuncionario(funcionarioContratado);
+
+        circus.addFuncionario(funcionarioContratado);
         adicionarItens(funcionarioContratado);
 
         showAlert("Funcionario adicionado", "Funcionario foi adicionado com sucesso");
         voltar();
     }
 
+
     private void adicionarItens(Funcionario funcionario) {
-        for (String item : itensListView.getItems()) {
-            funcionario.getItens().add(item);   
+        for (Item item : itensListView.getItems()) {
+            funcionario.getItens().add(item);
         }
     }
 
