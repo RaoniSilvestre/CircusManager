@@ -13,23 +13,21 @@ public class TelaFuncionariosController extends TelaComImagem {
 
     @FXML
     private void verListaFuncionarios() {
-        main.showScreen(6);
+        manager.trocarTela("ListaFuncionariosView.fxml", circus);
     }
 
     @FXML
     private void adicionarFuncionario() {
-        main.showScreen(7);
+        manager.trocarTela("AddFuncionarioView.fxml", circus);
     }
 
 
     @FXML
     private void removerFuncionario() {
-        main.showScreen(8);
+        manager.trocarTela("RemoverFuncionarioView.fxml", circus);
     }
 
 
     // Atualizar a Interface
     public void atualizar() {}
-    
-
 }

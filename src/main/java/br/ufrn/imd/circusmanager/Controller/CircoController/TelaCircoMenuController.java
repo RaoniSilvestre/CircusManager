@@ -67,27 +67,27 @@ public class TelaCircoMenuController extends TelaComImagem {
     
     @FXML
     private void funcionarios() {
-        main.showScreen(5);
+        manager.trocarTela("TelaFuncionariosView.fxml", circus);
     }
 
     @FXML
     private void zoo() {
-        main.showScreen(9);
+        manager.trocarTela("TelaZooView.fxml", circus);
     }
 
     @FXML
     private void dados() {
-        main.showScreen(13);
-    }
-
-    @FXML
-    private void sairDoCirco() {
-       main.showScreen(2);
+        manager.trocarTela("TelaDadosView.fxml", circus);
     }
 
     @FXML
     private void show() {
-        main.showScreen(14);
+        manager.trocarTela("TelaShowView.fxml", circus);
+    }
+
+    @FXML
+    private void sairDoCirco() {
+        manager.trocarTela("LoginView.fxml");
     }
 
     // Atualizar a Interface

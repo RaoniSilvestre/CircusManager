@@ -5,7 +5,7 @@ import br.ufrn.imd.circusmanager.Model.Circus.Show;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-public class TelaListaShowController extends Tela {
+public class ListaShowController extends Tela {
     @FXML
     private ListView<String> listashows;
 

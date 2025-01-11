@@ -12,21 +12,20 @@ public class TelaZooController extends TelaComImagem {
 
     @FXML
     private void verListaAnimais() {
-        main.showScreen(10);
+        manager.trocarTela("ListaAnimaisView.fxml", circus);
     }
 
 
     @FXML
     private void adicionarAnimal() {
-        main.showScreen(11);
+        manager.trocarTela("AddAnimalView.fxml", circus);
     }
 
 
     @FXML
     private void removerAnimal() {
-        main.showScreen(12);
+        manager.trocarTela("RemoverAnimalView.fxml", circus);
     }
-
 
     // Atualizar a Interface
     public void atualizar() {}
