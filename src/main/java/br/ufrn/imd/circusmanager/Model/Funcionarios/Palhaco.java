@@ -1,5 +1,6 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.PalhacoEnum;
 
 public class Palhaco extends Funcionario{
@@ -8,6 +9,7 @@ public class Palhaco extends Funcionario{
     public Palhaco(String nome, double salario, PalhacoEnum tipo) {
         super(nome, salario);
         this.tipo = tipo;
+        this.ocupacao = OcupacaoEnum.PALHACO;
     }
 
 
