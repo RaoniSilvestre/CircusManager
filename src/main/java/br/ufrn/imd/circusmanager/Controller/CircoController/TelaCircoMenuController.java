@@ -1,8 +1,6 @@
 package br.ufrn.imd.circusmanager.Controller.CircoController;
 
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
-import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
-import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -48,15 +46,11 @@ public class TelaCircoMenuController extends TelaComImagem {
     @FXML
     private void confirmarSaldo() {
         try {
-            double saldoAtual = Double.parseDouble(saldoTextField.getText());
+            double novoSaldo = Double.parseDouble(saldoTextField.getText());
 
-            double valorAtingo = circus.getConta().getBalanco();
-
-            double valorDaTransacao =  saldoAtual - valorAtingo;
-            circus.getConta().addTransacao(new Transacao("Edição", TransacaoEnum.INDEFINIDO, valorDaTransacao));
+            circus.editarSaldo(novoSaldo);
 
             atualizar();
-
         } catch (NumberFormatException e) {
             showAlert("Erro!", "Valor inválido.");
         }

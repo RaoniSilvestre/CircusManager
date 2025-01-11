@@ -1,9 +1,5 @@
 package br.ufrn.imd.circusmanager.Model.Itens.Enums;
 
-import br.ufrn.imd.circusmanager.Model.Itens.Item;
-
-import java.util.ArrayList;
-
 public enum ItemEnum {
     ALGODAO_DOCE,
     PIPOCA,
