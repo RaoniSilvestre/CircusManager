@@ -7,13 +7,8 @@ public class Magico extends Funcionario {
     private MagicoEnum tipo;
 
     public Magico(String nome, double salario, MagicoEnum tipo) {
-        super(nome, salario);
-        this.ocupacao = OcupacaoEnum.MAGICO;
+        super(nome, salario, OcupacaoEnum.MAGICO);
         this.tipo = tipo;
-    }
-
-    public String getDescricao() {
-        return String.format("%s - Ocupação: %s - Tipo: %s - Salario: %s - Itens: %s.", getNome(), getOcupacacao(), getTipo(),  getSalario(), itensToString());
     }
 
     // getters

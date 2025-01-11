@@ -7,7 +7,7 @@ public class Palhaco extends Funcionario{
     private PalhacoEnum tipo;
 
     public Palhaco(String nome, double salario, PalhacoEnum tipo) {
-        super(nome, salario);
+        super(nome, salario, OcupacaoEnum.PALHACO);
         this.tipo = tipo;
         this.ocupacao = OcupacaoEnum.PALHACO;
     }

@@ -1,10 +1,17 @@
 package br.ufrn.imd.circusmanager.Controller.CircoController;
 
-import br.ufrn.imd.circusmanager.Controller.Tela;
+import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class TelaInicialController extends Tela {
+public class TelaInicialController extends TelaComImagem {
+
+    @FXML
+    public void initialize() {
+        caminho = "/br/ufrn/imd/circusmanager/Imagens/ImagemInicial.png";
+        super.initialize();
+    }
+    
     @FXML
     private Label welcomeText;
 

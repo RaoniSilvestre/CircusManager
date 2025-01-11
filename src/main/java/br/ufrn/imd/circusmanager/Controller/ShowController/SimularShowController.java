@@ -1,11 +1,7 @@
 package br.ufrn.imd.circusmanager.Controller.ShowController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
-import br.ufrn.imd.circusmanager.Model.Animais.Animal;
 import br.ufrn.imd.circusmanager.Model.Circus.Circus;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Vendedor;
-import br.ufrn.imd.circusmanager.Model.Itens.Item;
 import br.ufrn.imd.circusmanager.Model.Itens.Vendedores;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -1,17 +1,22 @@
 package br.ufrn.imd.circusmanager.Controller.LoginController;
 
-import br.ufrn.imd.circusmanager.Controller.Tela;
+import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
 import javafx.fxml.FXML;
 import br.ufrn.imd.circusmanager.Model.Circus.*;
 import javafx.scene.control.TextField;
 
-public class CriarCircoController extends Tela {
+public class CriarCircoController extends TelaComImagem {
 
     @FXML
     private TextField nomeCircoField;
 
     @FXML
     private TextField saldoCircoField;
+    
+    public void initialize() {
+        caminho = "/br/ufrn/imd/circusmanager/Imagens/CircoCriar.png";
+        super.initialize();
+    }
 
     @FXML
     private void criarCirco() {

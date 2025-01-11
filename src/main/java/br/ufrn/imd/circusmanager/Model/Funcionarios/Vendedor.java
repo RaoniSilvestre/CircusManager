@@ -6,10 +6,8 @@ import br.ufrn.imd.circusmanager.Model.Itens.Vendedores;
 
 public class Vendedor extends Funcionario {
 
-    public Vendedor(String nome, double salario) {
-        super(nome, salario);
-        this.ocupacao = OcupacaoEnum.VENDEDOR;
-
+    public Vendedor(String nome, double salario){
+        super(nome, salario, OcupacaoEnum.VENDEDOR);
     }
 
     public String getTipo() {

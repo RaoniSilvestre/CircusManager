@@ -1,12 +1,12 @@
 package br.ufrn.imd.circusmanager.Controller.LoginController;
 
-import br.ufrn.imd.circusmanager.Controller.Tela;
+import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class LoginController extends Tela {
+public class LoginController extends TelaComImagem {
 
     @FXML
     private Button criarNovoCircoButton;
@@ -19,6 +19,12 @@ public class LoginController extends Tela {
 
     @FXML
     private Label erroLabel;
+
+    @FXML
+    public void initialize() {
+        caminho = "/br/ufrn/imd/circusmanager/Imagens/CircoLogin.png";
+        super.initialize();
+    }
 
     @FXML
     private void criarNovoCirco() {

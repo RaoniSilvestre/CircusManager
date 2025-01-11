@@ -7,7 +7,6 @@ import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Vendedor;
-import br.ufrn.imd.circusmanager.Model.Itens.Item;
 import br.ufrn.imd.circusmanager.Model.Itens.Vendedores;
 
 import java.util.ArrayList;
@@ -75,6 +74,15 @@ public class Circus {
         }
 
         return new Vendedores(vendedorDePipoca, vendedorDeAlgodaoDoce, vendedorDeBrinquedo);
+    }
+
+    public void editarSaldo(double valor) {
+
+        double valorAtingo = conta.getBalanco();
+
+        double valorDaTransacao =  valor - valorAtingo;
+        
+        conta.addTransacao(new Transacao("Edição", TransacaoEnum.INDEFINIDO, valorDaTransacao));
     }
 
     public String getNome() {

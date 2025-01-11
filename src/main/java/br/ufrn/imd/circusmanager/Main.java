@@ -54,6 +54,7 @@ public class Main extends Application {
         // Configurações da janela
         Scene scene = new Scene(root, 800, 600);
         stage.setTitle("Circus Manager!");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
