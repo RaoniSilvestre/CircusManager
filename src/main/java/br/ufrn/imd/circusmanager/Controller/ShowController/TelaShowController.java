@@ -13,19 +13,19 @@ public class TelaShowController extends TelaComImagem {
 
     @FXML
     private void registrarShow() {
-        main.showScreen(15);
+        manager.trocarTela("CadastrarShowView.fxml", circus);
     }
 
 
     @FXML
     private void simularShow() {
-        main.showScreen(16);
+        manager.trocarTela("SimularShowView.fxml", circus);
     }
 
 
     @FXML
     private void verHistoricoDeShow() {
-        main.showScreen(17);
+        manager.trocarTela("ListaShowView.fxml", circus);
     }
 
 

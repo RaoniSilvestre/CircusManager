@@ -5,7 +5,7 @@ import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-public class TelaListaFuncionariosController extends Tela {
+public class ListaFuncionariosController extends Tela {
     @FXML
     private ListView<String> listaFuncionarios;
 
