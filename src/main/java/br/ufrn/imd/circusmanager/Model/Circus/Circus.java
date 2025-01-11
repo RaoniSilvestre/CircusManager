@@ -6,43 +6,38 @@ import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
 
 public class Circus {
+    private int id;
+    private int circoId;
     private String nome;
-    private ContaCirco conta;
-    private FuncionarioDAO listaDeFuncionarios;
-    private AnimalDAO listaDeAnimais;
-    private ShowDAO listaDeShows;
-    
 
-    public Circus(String nome, double saldo) {
+
+    public Circus(int id, int circoId, String nome) {
+        this.id = id;
+        this.circoId = circoId;
         this.nome = nome;
-        conta = new ContaCirco();
+    }
 
-        Transacao transacaoInicial = new Transacao("Fundação", TransacaoEnum.FUNDACAO, saldo);
+    public int getId() {
+        return id;
+    }
 
-        conta.addTransacao(transacaoInicial);
+    public void setId(int id) {
+        this.id = id;
+    }
 
-        listaDeAnimais = new AnimalDAO();
-        listaDeFuncionarios = new FuncionarioDAO();
-        listaDeShows = new ShowDAO();
+    public int getCircoId() {
+        return circoId;
+    }
+
+    public void setCircoId(int circoId) {
+        this.circoId = circoId;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public ContaCirco getConta() {
-        return conta;
-    }
-
-    public FuncionarioDAO getListaDeFuncionarios() {
-        return listaDeFuncionarios;
-    }
-
-    public AnimalDAO getListaDeAnimais() {
-        return listaDeAnimais;
-    }
-
-    public ShowDAO getListaDeShows() {
-        return listaDeShows;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

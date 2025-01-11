@@ -1,14 +1,24 @@
 package br.ufrn.imd.circusmanager.Model.Animais;
 
 public class Animal {
+    private int id;
     private String nome;
     private Double valorManutencao;
     private AnimalEnum tipo;
 
-    public Animal(String nome, Double valorManutencao, AnimalEnum tipo) {
+    public Animal(int id, String nome, Double valorManutencao, AnimalEnum tipo) {
+        this.id = id;
         this.nome = nome;
         this.valorManutencao = valorManutencao;
         this.tipo = tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescricao() {
