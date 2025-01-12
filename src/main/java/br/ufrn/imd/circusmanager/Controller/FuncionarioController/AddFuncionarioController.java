@@ -1,13 +1,14 @@
 package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import br.ufrn.imd.circusmanager.Controller.Tela;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.MagicoEnum;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.PalhacoEnum;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.TrapezistaEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.*;
 import br.ufrn.imd.circusmanager.Model.Itens.Item;
 import br.ufrn.imd.circusmanager.Model.Itens.ItemFactory;
+import br.ufrn.imd.circusmanager.Service.FuncionarioService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,10 +16,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class AddFuncionarioController extends Tela {
-    
-    @Override
-    public void atualizar() {}
+
+    FuncionarioService funcionarioService;
+
     @FXML
     private ComboBox<OcupacaoEnum> ocupacaoComboBox;
     @FXML
@@ -32,14 +36,20 @@ public class AddFuncionarioController extends Tela {
     @FXML
     private ComboBox<Item> itemComboBox;
 
-     @FXML
+    @Override
+    public void atualizar() {
+    }
+
+    @FXML
     public void initialize() {
+        this.funcionarioService = new FuncionarioService();
+
         // Definir opções do ComboBox de ocupação
         ocupacaoComboBox.setItems(FXCollections.observableArrayList(OcupacaoEnum.values()));
 
         ocupacaoComboBox.setOnAction(event -> {
             if (ocupacaoComboBox.getValue() == null) return;
- 
+
             OcupacaoEnum ocupacaoSelecionada = ocupacaoComboBox.getValue();
 
             //Limpar itens e tipo
@@ -74,7 +84,7 @@ public class AddFuncionarioController extends Tela {
     private void adicionarItem() {
         Item itemSelecionado = itemComboBox.getValue();
         if (itemSelecionado != null) {
-            for (Item item : itensListView.getItems()){
+            for (Item item : itensListView.getItems()) {
                 if (item.equals(itemSelecionado))
                     return;
             }
@@ -88,7 +98,7 @@ public class AddFuncionarioController extends Tela {
         String nome = nomeTextField.getText();
         String salarioString = salarioTextField.getText();
         String tipo = tipoComboBox.getValue();
-        
+
         if (ocupacao == null || (tipo == null && !ocupacao.equals(OcupacaoEnum.VENDEDOR)) || nome == null) {
             showAlert("Erro", "Todos os campos devem ser preenchidos.");
             return;
@@ -108,7 +118,7 @@ public class AddFuncionarioController extends Tela {
             showAlert("Erro", "Salario deve ser um número válido!");
             return;
         }
-        
+
         Funcionario funcionarioContratado = switch (ocupacao) {
             case VENDEDOR -> new Vendedor(nome, salario);
             case MAGICO -> new Magico(nome, salario, MagicoEnum.fromString(tipo));
@@ -116,9 +126,9 @@ public class AddFuncionarioController extends Tela {
             case PALHACO -> new Palhaco(nome, salario, PalhacoEnum.fromString(tipo));
         };
 
+        ArrayList<Item> itens = new ArrayList<>(itensListView.getItems());
 
-        circus.addFuncionario(funcionarioContratado);
-        adicionarItens(funcionarioContratado);
+        funcionarioService.salvarFuncionario(funcionarioContratado, Tela.getCirco(), itens);
 
         showAlert("Funcionario adicionado", "Funcionario foi adicionado com sucesso");
         voltar();

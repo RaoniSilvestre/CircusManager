@@ -1,25 +1,35 @@
 package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
+import br.ufrn.imd.circusmanager.Service.FuncionarioService;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.geometry.Pos;
+
+import java.util.List;
 
 public class RemoverFuncionarioController extends Tela {
 
+    FuncionarioService funcionarioService;
+
     @FXML
     private VBox funcionariosVBox;
+
+    @FXML
+    public void initialize() {
+        this.funcionarioService = new FuncionarioService();
+    }
 
     private HBox criarLinhaFuncionario(Funcionario funcionario) {
         HBox linha = new HBox();
         linha.setSpacing(10);
         linha.setAlignment(Pos.CENTER_LEFT);
 
-        Label nomeLabel = new Label(funcionario.getDescricao());
+        Label nomeLabel = new Label(funcionario.toString());
         nomeLabel.setStyle("-fx-font-size: 16px;");
 
         Button removerButton = new Button("X");
@@ -31,10 +41,9 @@ public class RemoverFuncionarioController extends Tela {
     }
 
     private void removerFuncionario(Funcionario funcionario) {
-        // Lógica para remover o funcionário do sistema
-        System.out.println("Funcionário removido: " + funcionario.getNome());
+        funcionarioService.deletarFuncionario(funcionario);
 
-        circus.deleteFuncionario(funcionario);
+        System.out.println("Funcionário removido: " + funcionario.getNome());
 
         atualizar();
     }
@@ -42,7 +51,10 @@ public class RemoverFuncionarioController extends Tela {
     @Override
     public void atualizar() {
         funcionariosVBox.getChildren().clear();
-        for (Funcionario funcionario : circus.getListaDeFuncionarios()) {
+
+        List<Funcionario> funcionarios = funcionarioService.buscarTodosFuncionario(Tela.getCirco());
+
+        for (Funcionario funcionario : funcionarios) {
             HBox linha = criarLinhaFuncionario(funcionario);
             funcionariosVBox.getChildren().add(linha);
         }

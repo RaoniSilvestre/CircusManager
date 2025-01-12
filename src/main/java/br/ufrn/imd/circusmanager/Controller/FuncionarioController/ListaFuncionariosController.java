@@ -1,21 +1,35 @@
 package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
+import br.ufrn.imd.circusmanager.Service.FuncionarioService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-public class ListaFuncionariosController extends Tela {
-    @FXML
-    private ListView<String> listaFuncionarios;
+import java.util.List;
 
-    // Método chamado para preencher a lista de funcionários
+public class ListaFuncionariosController extends Tela {
+
+    FuncionarioService funcionarioService;
+
+
+    @FXML
+    private ListView<Funcionario> listaFuncionarios;
+
+    @FXML
+    public void initialize() {
+        this.funcionarioService = new FuncionarioService();
+    }
+
     public void inicializarLista() {
         listaFuncionarios.getItems().clear();
-    
-        for (Funcionario funcionario : circus.getListaDeFuncionarios()) {
-            listaFuncionarios.getItems().add(funcionario.getDescricao());
-        }
+
+        List<Funcionario> funcionarios = funcionarioService.buscarTodosFuncionario(Tela.getCirco());
+        ObservableList<Funcionario> observableList = FXCollections.observableArrayList(funcionarios);
+
+        listaFuncionarios.setItems(observableList);
     }
 
 
