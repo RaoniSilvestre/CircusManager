@@ -1,13 +1,18 @@
 package br.ufrn.imd.circusmanager.Controller.CircoController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
-import br.ufrn.imd.circusmanager.Model.Animais.Animal;
-import br.ufrn.imd.circusmanager.Model.Circus.Circus;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
+import br.ufrn.imd.circusmanager.Model.Circus.Circo;
+import br.ufrn.imd.circusmanager.Service.CircoService;
+import br.ufrn.imd.circusmanager.Service.FuncionarioService;
+import br.ufrn.imd.circusmanager.Service.ZooService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class TelaDadosController extends Tela {
+
+    CircoService circoService;
+    FuncionarioService funcionarioService;
+    ZooService zooService;
 
     @FXML
     private Label precoIngressoLabel;
@@ -27,27 +32,31 @@ public class TelaDadosController extends Tela {
     @FXML
     private Label funcionarioMaisAntigoLabel;
 
-    public void atualizar() {
-        Circus circoAtual = circus;
-        double custoTotalMensal = 0;
-        int totalDeItens = 0;
-        String funcionarioMaisAntigo = "Sem Funcionarios";
+    @FXML
+    public void initialize() {
+        this.circoService = new CircoService();
+        this.zooService = new ZooService();
+        this.funcionarioService = new FuncionarioService();
+    }
 
-        for (Funcionario funcionario :  circoAtual.getListaDeFuncionarios()) {
-            custoTotalMensal += funcionario.getSalario();
-            if (funcionarioMaisAntigo.equals("Sem Funcionarios")) {
-                funcionarioMaisAntigo = funcionario.getNome();
-            }
-            totalDeItens += funcionario.getItens().size();
-        }
-        for (Animal animal :  circoAtual.getListaDeAnimais()) {
-            custoTotalMensal += animal.getValorManutencao();
-        }
-        
-        numeroFuncionariosLabel.setText("Numero de funcionarios: " +  circoAtual.getListaDeFuncionarios().size());
-        quantidadeAnimaisLabel.setText("Quantidade de animais: " +  circoAtual.getListaDeAnimais().size());
+    public void atualizar() {
+        Circo circoAtual = Tela.getCirco();
+
+        double custoFuncionarios = funcionarioService.getCustoTotalFuncionario(circoAtual);
+        double custoAnimais = zooService.getCustoTotalAnimal(circoAtual);
+        double custoTotalMensal = custoFuncionarios + custoAnimais;
+
+        int totalItens = funcionarioService.getFuncionarioItens(circoAtual);
+
+        String funcionarioMaisAntigo = funcionarioService.getFuncionarioMaisAntigo(circoAtual);
+
+        int totalFuncionarios = funcionarioService.buscarTodosFuncionario(circoAtual).size();
+        int totalAnimais = zooService.listarAnimais(circoAtual).size();
+
+        numeroFuncionariosLabel.setText("Numero de funcionarios: " + totalFuncionarios);
+        quantidadeAnimaisLabel.setText("Quantidade de animais: " + totalAnimais);
         custoTotalMensalLabel.setText("Custo total mensal: R$ " + custoTotalMensal);
-        totalItensLabel.setText("Total de itens: " + totalDeItens);
+        totalItensLabel.setText("Total de itens: " + totalItens);
         funcionarioMaisAntigoLabel.setText("Funcionario mais antigo: " + funcionarioMaisAntigo);
     }
 }

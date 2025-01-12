@@ -7,7 +7,7 @@ import br.ufrn.imd.circusmanager.Model.Circus.Circo;
 import java.util.List;
 
 public class ZooService {
-    private AnimalDAO animalDAO;
+    private final AnimalDAO animalDAO;
 
     public ZooService() {
         this.animalDAO = new AnimalDAO();

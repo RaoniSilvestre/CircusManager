@@ -16,10 +16,9 @@ import java.io.IOException;
 
 public class TelaManager {
 
-    public String telaAtual;
-
     @Getter
-    private StackPane root;
+    private final StackPane root;
+    public String telaAtual;
 
     public TelaManager(Stage stage) {
         root = new StackPane();

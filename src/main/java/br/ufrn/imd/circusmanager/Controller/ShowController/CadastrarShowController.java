@@ -2,8 +2,10 @@ package br.ufrn.imd.circusmanager.Controller.ShowController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Circus.Show;
-import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
+import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
+import br.ufrn.imd.circusmanager.Service.CircoService;
+import br.ufrn.imd.circusmanager.Service.ShowService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +18,10 @@ import java.util.Collections;
 import java.util.stream.IntStream;
 
 public class CadastrarShowController extends Tela {
+
+    ShowService showService;
+
+    CircoService circoService;
 
     @FXML
     private TextField totalVisitantesField;
@@ -46,22 +52,25 @@ public class CadastrarShowController extends Tela {
 
     @FXML
     public void initialize() {
+        this.showService = new ShowService();
+        this.circoService = new CircoService();
+
         // Preencher os dias (1 a 31)
         ObservableList<Integer> dias = FXCollections.observableArrayList(
-            IntStream.rangeClosed(1, 31).boxed().toList()
+                IntStream.rangeClosed(1, 31).boxed().toList()
         );
         diaComboBox.setItems(dias);
 
         // Preencher os meses (1 a 12)
         ObservableList<String> meses = FXCollections.observableArrayList(
-            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
-            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
         );
         mesComboBox.setItems(meses);
 
         // Preencher os anos (1925 a 2025)
         ObservableList<Integer> anos = FXCollections.observableArrayList(
-        IntStream.rangeClosed(1925, 2025).boxed().toList()
+                IntStream.rangeClosed(1925, 2025).boxed().toList()
         );
         Collections.reverse(anos);
         anoComboBox.setItems(anos);
@@ -71,7 +80,7 @@ public class CadastrarShowController extends Tela {
     private void registrar() {
         try {
             // Nome do show baseado no tamanho da lista
-            String nomeDoShow = "Show" + circus.getListaDeShows().getShows().size();
+            String nomeDoShow = "Show" + showService.listarShow(Tela.getCirco()).size();
 
             // Conversão dos campos numéricos
             int totalVisitantes = Integer.parseInt(totalVisitantesField.getText());
@@ -83,10 +92,10 @@ public class CadastrarShowController extends Tela {
 
             // Extração e validação da data
             Integer dia = diaComboBox.getValue();
-            Integer mes = mesComboBox.getSelectionModel().getSelectedIndex() + 1; // Index começa em 0
+            int mes = mesComboBox.getSelectionModel().getSelectedIndex() + 1; // Index começa em 0
             Integer ano = anoComboBox.getValue();
 
-            if (dia == null || mes == null || ano == null) {
+            if (dia == null || ano == null) {
                 showAlert("Erro na Data", "Por favor, selecione Dia, Mês e Ano.");
                 return;
             }
@@ -96,11 +105,14 @@ public class CadastrarShowController extends Tela {
 
             // Criação do objeto Show
             Show show = new Show(nomeDoShow, totalVisitantes, pipocasVendidas, algodoesDocesVendidos, brinquedosVendidos, custosTotais, lucro, data);
-            circus.getListaDeShows().addShow(show);
+            showService.addShow(Tela.getCirco(), show);
 
-            Transacao transacao = new Transacao(nomeDoShow, TransacaoEnum.APRESENTACOES, lucro);
-            circus.getConta().addTransacao(transacao);
-            // Exibir mensagem de sucesso
+            Transacao transacaoShowCusto = new Transacao(TransacaoEnum.SHOWCUSTO, -custosTotais);
+            Transacao transacaoShowLucro = new Transacao(TransacaoEnum.APRESENTACOES, lucro);
+
+            circoService.addTransacao(transacaoShowCusto, Tela.getCirco());
+            circoService.addTransacao(transacaoShowLucro, Tela.getCirco());
+
             showAlert("Show registrado", "O show foi registrado com sucesso.");
 
             // Limpar os campos após o registro

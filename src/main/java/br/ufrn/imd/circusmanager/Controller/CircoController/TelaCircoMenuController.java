@@ -100,7 +100,7 @@ public class TelaCircoMenuController extends TelaComImagem {
         Circo circo = Tela.getCirco();
         circusLabel.setText("Circo: " + circo.getNome());
 
-        double saldo = circo.getConta().calcularSaldo();
+        double saldo = circoService.calcularSaldo(circo);
 
         saldoLabel.setText("Saldo: " + saldo);
 

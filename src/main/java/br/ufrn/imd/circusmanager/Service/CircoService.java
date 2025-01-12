@@ -9,9 +9,9 @@ import br.ufrn.imd.circusmanager.Model.ContaBancaria.Enums.TransacaoEnum;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
 
 public class CircoService {
-    private CircoDAO circoDAO;
-    private ContaDAO contaDAO;
-    private TransacaoDAO transacaoDAO;
+    private final CircoDAO circoDAO;
+    private final ContaDAO contaDAO;
+    private final TransacaoDAO transacaoDAO;
 
     public CircoService() {
         this.circoDAO = new CircoDAO();

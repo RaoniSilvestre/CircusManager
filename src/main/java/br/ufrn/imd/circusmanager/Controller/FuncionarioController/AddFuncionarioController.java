@@ -1,6 +1,7 @@
 package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
+import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.MagicoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.PalhacoEnum;
@@ -8,6 +9,7 @@ import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.TrapezistaEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import br.ufrn.imd.circusmanager.Model.Itens.Item;
 import br.ufrn.imd.circusmanager.Model.Itens.ItemFactory;
+import br.ufrn.imd.circusmanager.Service.CircoService;
 import br.ufrn.imd.circusmanager.Service.FuncionarioService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +24,7 @@ import java.util.Arrays;
 public class AddFuncionarioController extends Tela {
 
     FuncionarioService funcionarioService;
+    CircoService circoService;
 
     @FXML
     private ComboBox<OcupacaoEnum> ocupacaoComboBox;
@@ -43,6 +46,7 @@ public class AddFuncionarioController extends Tela {
     @FXML
     public void initialize() {
         this.funcionarioService = new FuncionarioService();
+        this.circoService = new CircoService();
 
         // Definir opções do ComboBox de ocupação
         ocupacaoComboBox.setItems(FXCollections.observableArrayList(OcupacaoEnum.values()));
@@ -128,7 +132,13 @@ public class AddFuncionarioController extends Tela {
 
         ArrayList<Item> itens = new ArrayList<>(itensListView.getItems());
 
-        funcionarioService.salvarFuncionario(funcionarioContratado, Tela.getCirco(), itens);
+        ArrayList<Transacao> addItensTransacoes = new ArrayList<>(itens.stream().map(item -> new Transacao(-item.getValor())).toList());
+
+        addItensTransacoes.forEach(transacao -> {
+            circoService.addTransacao(transacao, Tela.getCirco());
+        });
+
+        funcionarioService.addFuncionario(funcionarioContratado, Tela.getCirco(), itens);
 
         showAlert("Funcionario adicionado", "Funcionario foi adicionado com sucesso");
         voltar();

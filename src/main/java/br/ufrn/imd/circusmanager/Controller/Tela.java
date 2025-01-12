@@ -56,7 +56,7 @@ public abstract class Tela {
     @FXML
     public void voltar() {
 
-        String tela = new String();
+        String tela = "";
 
         if (manager.telaAtual.equals("CriarCircoView.fxml")) {
             manager.trocarTela("LoginView.fxml");

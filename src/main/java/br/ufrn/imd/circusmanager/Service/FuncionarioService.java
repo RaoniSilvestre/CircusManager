@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class FuncionarioService {
-    private FuncionarioDAO funcionarioDAO;
-    private ItemDAO itemDAO;
+    private final FuncionarioDAO funcionarioDAO;
+    private final ItemDAO itemDAO;
 
     public FuncionarioService() {
         this.funcionarioDAO = new FuncionarioDAO();
