@@ -8,18 +8,30 @@ import javafx.scene.control.ListView;
 
 import java.util.List;
 
+/**
+ * The type Lista animais controller.
+ */
 public class ListaAnimaisController extends Tela {
 
+    /**
+     * The Zoo service.
+     */
     ZooService zooService;
 
     @FXML
     private ListView<Animal> listaAnimais;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.zooService = new ZooService();
     }
 
+    /**
+     * Inicializar lista.
+     */
     public void inicializarLista() {
         listaAnimais.getItems().clear();
 

@@ -8,6 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * The type Conta dao.
+ */
 public class ContaDAO extends GenericDAO<Conta> {
     @Override
     public Conta buscarPorId(int id) {

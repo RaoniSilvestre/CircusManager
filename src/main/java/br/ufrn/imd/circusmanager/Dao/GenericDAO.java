@@ -8,9 +8,19 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 
+/**
+ * The type Generic dao.
+ *
+ * @param <T> the type parameter
+ */
 public abstract class GenericDAO<T> {
 
 
+    /**
+     * Salvar.
+     *
+     * @param t the t
+     */
     public void salvar(T t) {
         EntityManager em = JpaUtils.getEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -28,10 +38,27 @@ public abstract class GenericDAO<T> {
         }
     }
 
+    /**
+     * Buscar por id t.
+     *
+     * @param id the id
+     * @return the t
+     */
     public abstract T buscarPorId(int id);
 
+    /**
+     * Buscar todos list.
+     *
+     * @param circo the circo
+     * @return the list
+     */
     public abstract List<T> buscarTodos(Circo circo);
 
+    /**
+     * Atualizar.
+     *
+     * @param t the t
+     */
     public void atualizar(T t) {
         EntityManager em = JpaUtils.getEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -50,6 +77,11 @@ public abstract class GenericDAO<T> {
     }
 
 
+    /**
+     * Deletar.
+     *
+     * @param id the id
+     */
     public void deletar(int id) {
         EntityManager em = JpaUtils.getEntityManager();
         EntityTransaction transaction = em.getTransaction();

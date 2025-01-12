@@ -10,19 +10,31 @@ import javafx.scene.control.ListView;
 
 import java.util.List;
 
+/**
+ * The type Lista funcionarios controller.
+ */
 public class ListaFuncionariosController extends Tela {
 
+    /**
+     * The Funcionario service.
+     */
     FuncionarioService funcionarioService;
 
 
     @FXML
     private ListView<Funcionario> listaFuncionarios;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.funcionarioService = new FuncionarioService();
     }
 
+    /**
+     * Inicializar lista.
+     */
     public void inicializarLista() {
         listaFuncionarios.getItems().clear();
 

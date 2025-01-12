@@ -21,9 +21,18 @@ import javafx.scene.control.TextField;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * The type Add funcionario controller.
+ */
 public class AddFuncionarioController extends Tela {
 
+    /**
+     * The Funcionario service.
+     */
     FuncionarioService funcionarioService;
+    /**
+     * The Circo service.
+     */
     CircoService circoService;
 
     @FXML
@@ -43,6 +52,9 @@ public class AddFuncionarioController extends Tela {
     public void atualizar() {
     }
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.funcionarioService = new FuncionarioService();
