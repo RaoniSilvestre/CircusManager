@@ -18,7 +18,10 @@ public class ItemDAO extends GenericDAO<Item> {
     @Override
     public List<Item> buscarTodos(Circo circo) {
         EntityManager em = JpaUtils.getEntityManager();
-        TypedQuery<Item> query = em.createQuery("SELECT i FROM Item i", Item.class);
+        String sql = "SELECT i FROM Item i WHERE i.funcionario.circo = :circo";
+        TypedQuery<Item> query = em.createQuery(sql, Item.class);
+        query.setParameter("circo", circo);
         return query.getResultList();
     }
+
 }

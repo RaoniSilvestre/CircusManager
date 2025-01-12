@@ -4,6 +4,7 @@ import br.ufrn.imd.circusmanager.Model.Circus.Circo;
 import br.ufrn.imd.circusmanager.Utils.JpaUtils;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -37,6 +38,28 @@ public class CircoDAO extends GenericDAO<Circo> {
 
         TypedQuery<Circo> query = em.createQuery("SELECT c FROM Circo c", Circo.class);
         return query.getResultList();
+    }
+
+    @Override
+    public void deletar(int id) {
+        EntityManager em = JpaUtils.getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            transaction.begin();
+            Circo entidade = buscarPorId(id);
+            if (entidade != null) {
+                entidade = em.merge(entidade);
+                em.remove(entidade);
+            }
+            transaction.commit();
+        } catch (RuntimeException e) {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw e;
+        } finally {
+            em.close();
+        }
     }
 
 }

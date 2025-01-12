@@ -18,7 +18,8 @@ public class TransacaoDAO extends GenericDAO<Transacao> {
     @Override
     public List<Transacao> buscarTodos(Circo circo) {
         EntityManager em = JpaUtils.getEntityManager();
-        TypedQuery<Transacao> query = em.createQuery("SELECT t FROM Transacao t", Transacao.class);
+        TypedQuery<Transacao> query = em.createQuery("SELECT t FROM Transacao t WHERE t.conta.circo = :circo", Transacao.class);
+        query.setParameter("circo", circo);
         return query.getResultList();
     }
 
