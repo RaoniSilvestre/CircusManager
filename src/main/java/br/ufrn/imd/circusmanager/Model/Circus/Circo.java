@@ -1,16 +1,29 @@
 package br.ufrn.imd.circusmanager.Model.Circus;
 
+import br.ufrn.imd.circusmanager.Model.ContaBancaria.ContaCirco;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 public class Circus {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int circoId;
+
     private String nome;
 
+    @OneToOne(mappedBy = "circo")
+    private ContaCirco conta;
 
-    public Circus(int id, int circoId, String nome) {
+
+    public Circus(int id, String nome) {
         this.id = id;
-        this.circoId = circoId;
         this.nome = nome;
     }
+
 
     public int getId() {
         return id;

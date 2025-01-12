@@ -2,24 +2,25 @@ package br.ufrn.imd.circusmanager.Dao;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
 
-import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
-public class FuncionarioDAO {
-    private ArrayList<Funcionario> funcionarios;
-
-    public FuncionarioDAO() {
-        this.funcionarios = new ArrayList<>();
+public class FuncionarioDAO extends GenericDAO<Funcionario> {
+    protected FuncionarioDAO(EntityManager em) {
+        super(em);
     }
 
-    public void addFuncionario(Funcionario f) {
-        this.funcionarios.add(f);
+    @Override
+    public Funcionario buscarPorId(int id) {
+        return em.find(Funcionario.class, id);
     }
 
-    public void deleteFuncionario(Funcionario f) {
-        this.funcionarios.remove(f);
+    @Override
+    public List<Funcionario> buscarTodos(int id) {
+        TypedQuery<Funcionario> query = em.createQuery("SELECT f FROM Funcionario f", Funcionario.class);
+        return query.getResultList();
     }
 
-    public ArrayList<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
+
 }
