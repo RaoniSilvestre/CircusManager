@@ -14,14 +14,28 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    private String nome;
+
     private double custo;
 
-    private String tipo;
+    private AnimalEnum tipo;
 
     @ManyToOne
     @JoinColumn(name = "circo_id", referencedColumnName = "id")
     private Circo circo;
 
-    Animal() {
+    public Animal() {
     }
+
+    public Animal(String nome, double custo, AnimalEnum tipo) {
+        this.nome = nome;
+        this.custo = custo;
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Nome: %s ; Espécie: %s ; Custo: R$ %.2f", nome, tipo, custo);
+    }
+
 }

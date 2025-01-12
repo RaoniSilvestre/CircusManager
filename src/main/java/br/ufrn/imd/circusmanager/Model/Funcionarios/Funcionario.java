@@ -30,7 +30,7 @@ public abstract class Funcionario {
     @JoinColumn(name = "circo_id")
     private Circo circo;
 
-    @OneToMany(mappedBy = "funcionario")
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
     private List<Item> itens = new ArrayList<>();
 
 
