@@ -2,15 +2,19 @@ package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.MagicoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
-import br.ufrn.imd.circusmanager.Model.Itens.Item;
+import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue("MAGICO")
+@NoArgsConstructor
 public class Magico extends Funcionario {
     private MagicoEnum tipo;
 
-    public Magico(String nome, double salario, MagicoEnum tipo, Set<Item> itens) {
-        super(nome, salario, OcupacaoEnum.MAGICO, itens);
+    public Magico(String nome, double salario, MagicoEnum tipo) {
+        super(nome, salario, OcupacaoEnum.MAGICO);
         this.tipo = tipo;
     }
 }

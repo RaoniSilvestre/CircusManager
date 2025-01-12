@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,17 +20,20 @@ public class Circo {
     @Column(nullable = false)
     private String nome;
 
-    @OneToOne(mappedBy = "circo")
+    @OneToOne(mappedBy = "circo", cascade = CascadeType.ALL)
     private Conta conta;
 
-    @OneToMany(mappedBy = "circo")
-    private Set<Show> shows;
+    @OneToMany(mappedBy = "circo", cascade = CascadeType.ALL)
+    private List<Show> shows;
 
-    @OneToMany(mappedBy = "circo")
-    private Set<Animal> animais;
+    @OneToMany(mappedBy = "circo", cascade = CascadeType.ALL)
+    private List<Animal> animais;
 
-    @OneToMany(mappedBy = "circo")
-    private Set<Funcionario> funcionarios;
+    @OneToMany(mappedBy = "circo", cascade = CascadeType.ALL)
+    private List<Funcionario> funcionarios;
+
+    public Circo() {
+    }
 
     public Circo(String nome) {
         this.nome = nome;

@@ -22,4 +22,6 @@ public class Animal {
     @JoinColumn(name = "circo_id", referencedColumnName = "id")
     private Circo circo;
 
+    Animal() {
+    }
 }

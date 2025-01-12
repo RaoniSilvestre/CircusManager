@@ -1,14 +1,18 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
-import br.ufrn.imd.circusmanager.Model.Itens.Item;
+import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue("VENDEDOR")
+@NoArgsConstructor
 public class Vendedor extends Funcionario {
 
-    public Vendedor(String nome, double salario, Set<Item> itens) {
-        super(nome, salario, OcupacaoEnum.VENDEDOR, itens);
+    public Vendedor(String nome, double salario) {
+        super(nome, salario, OcupacaoEnum.VENDEDOR);
     }
 
     public String getTipo() {

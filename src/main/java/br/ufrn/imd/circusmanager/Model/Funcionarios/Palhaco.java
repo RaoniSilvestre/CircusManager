@@ -2,15 +2,19 @@ package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.PalhacoEnum;
-import br.ufrn.imd.circusmanager.Model.Itens.Item;
+import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue("PALHACO")
+@NoArgsConstructor
 public class Palhaco extends Funcionario {
     private PalhacoEnum tipo;
 
-    public Palhaco(String nome, double salario, PalhacoEnum tipo, Set<Item> itens) {
-        super(nome, salario, OcupacaoEnum.PALHACO, itens);
+    public Palhaco(String nome, double salario, PalhacoEnum tipo) {
+        super(nome, salario, OcupacaoEnum.PALHACO);
         this.tipo = tipo;
     }
 

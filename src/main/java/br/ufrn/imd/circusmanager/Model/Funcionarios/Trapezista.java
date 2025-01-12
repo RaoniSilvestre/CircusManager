@@ -2,15 +2,19 @@ package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.TrapezistaEnum;
-import br.ufrn.imd.circusmanager.Model.Itens.Item;
+import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue("TRAPEZISTA")
+@NoArgsConstructor
 public class Trapezista extends Funcionario {
     private TrapezistaEnum tipo;
 
-    public Trapezista(String nome, double salario, TrapezistaEnum tipo, Set<Item> itens) {
-        super(nome, salario, OcupacaoEnum.TRAPEZISTA, itens);
+    public Trapezista(String nome, double salario, TrapezistaEnum tipo) {
+        super(nome, salario, OcupacaoEnum.TRAPEZISTA);
         this.tipo = tipo;
     }
 }

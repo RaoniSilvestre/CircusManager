@@ -14,9 +14,16 @@ public class Transacao {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "conta_id", referencedColumnName = "id")
+    @JoinColumn(name = "conta_id", referencedColumnName = "id", nullable = false)
     private Conta conta;
 
     private double amount;
 
+    public Transacao() {
+    }
+
+    public Transacao(Conta conta, double amount) {
+        this.conta = conta;
+        this.amount = amount;
+    }
 }

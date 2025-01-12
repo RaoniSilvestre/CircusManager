@@ -3,6 +3,7 @@ package br.ufrn.imd.circusmanager.Model.Itens;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
 import br.ufrn.imd.circusmanager.Model.Itens.Enums.ItemEnum;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

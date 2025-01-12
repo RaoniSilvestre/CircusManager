@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,6 +20,23 @@ public class Conta {
     @JoinColumn(name = "circo_id", referencedColumnName = "id")
     private Circo circo;
 
-    @OneToMany(mappedBy = "conta")
-    private Set<Transacao> transacoes;
+    @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Transacao> transacoes = new ArrayList<>();
+
+    public Conta() {
+    }
+
+    public Conta(Circo circo) {
+        this.circo = circo;
+    }
+
+    public void addTransacao(Transacao t) {
+        this.transacoes.add(t);
+    }
+
+    public double calcularSaldo() {
+        transacoes.size();
+        return transacoes.stream().map(Transacao::getAmount).reduce(0.0, Double::sum);
+    }
+
 }

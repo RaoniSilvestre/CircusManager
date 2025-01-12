@@ -21,4 +21,7 @@ public class Show {
     @ManyToOne
     @JoinColumn(name = "circo_id", referencedColumnName = "id")
     private Circo circo;
+
+    public Show() {
+    }
 }
