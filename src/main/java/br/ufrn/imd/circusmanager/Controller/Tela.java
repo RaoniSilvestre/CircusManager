@@ -8,6 +8,9 @@ import lombok.Setter;
 
 import javax.persistence.EntityManager;
 
+/**
+ * The type Tela.
+ */
 @Getter
 @Setter
 public abstract class Tela {
@@ -15,36 +18,80 @@ public abstract class Tela {
     static private Circo circo;
     static private EntityManager em;
 
+    /**
+     * Gets entity manager.
+     *
+     * @return the entity manager
+     */
     static public EntityManager getEntityManager() {
         return Tela.em;
     }
 
+    /**
+     * Sets entity manager.
+     *
+     * @param em the em
+     */
     static public void setEntityManager(EntityManager em) {
         Tela.em = em;
     }
 
+    /**
+     * Gets manager.
+     *
+     * @return the manager
+     */
     static public TelaManager getManager() {
         return Tela.manager;
     }
 
+    /**
+     * Sets manager.
+     *
+     * @param manager the manager
+     */
     static public void setManager(TelaManager manager) {
         Tela.manager = manager;
     }
 
+    /**
+     * Gets circo.
+     *
+     * @return the circo
+     */
     static public Circo getCirco() {
         return Tela.circo;
     }
 
+    /**
+     * Sets circo.
+     *
+     * @param circo the circo
+     */
     static public void setCirco(Circo circo) {
         Tela.circo = circo;
     }
 
+    /**
+     * Trocar tela.
+     *
+     * @param caminho the caminho
+     */
     public void trocarTela(String caminho) {
         manager.trocarTela(caminho);
     }
 
+    /**
+     * Atualizar.
+     */
     public abstract void atualizar();
 
+    /**
+     * Show alert.
+     *
+     * @param title   the title
+     * @param message the message
+     */
     public void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -53,6 +100,9 @@ public abstract class Tela {
         alert.showAndWait();
     }
 
+    /**
+     * Voltar.
+     */
     @FXML
     public void voltar() {
 
@@ -74,6 +124,9 @@ public abstract class Tela {
         manager.trocarTela(tela);
     }
 
+    /**
+     * Sair do sistema.
+     */
     @FXML
     public void sairDoSistema() {
         // Sair do APP

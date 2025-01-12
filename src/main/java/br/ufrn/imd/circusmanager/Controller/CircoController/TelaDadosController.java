@@ -8,10 +8,22 @@ import br.ufrn.imd.circusmanager.Service.ZooService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+/**
+ * The type Tela dados controller.
+ */
 public class TelaDadosController extends Tela {
 
+    /**
+     * The Circo service.
+     */
     CircoService circoService;
+    /**
+     * The Funcionario service.
+     */
     FuncionarioService funcionarioService;
+    /**
+     * The Zoo service.
+     */
     ZooService zooService;
 
     @FXML
@@ -32,6 +44,9 @@ public class TelaDadosController extends Tela {
     @FXML
     private Label funcionarioMaisAntigoLabel;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.circoService = new CircoService();

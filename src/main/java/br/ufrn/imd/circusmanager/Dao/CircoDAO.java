@@ -9,6 +9,9 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * The type Circo dao.
+ */
 public class CircoDAO extends GenericDAO<Circo> {
 
 
@@ -19,6 +22,12 @@ public class CircoDAO extends GenericDAO<Circo> {
         return em.find(Circo.class, id);
     }
 
+    /**
+     * Buscar por nome circo.
+     *
+     * @param nome the nome
+     * @return the circo
+     */
     public Circo buscarPorNome(String nome) {
         EntityManager em = JpaUtils.getEntityManager();
         try {

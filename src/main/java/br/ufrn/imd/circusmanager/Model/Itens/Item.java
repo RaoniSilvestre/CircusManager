@@ -8,6 +8,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * The type Item.
+ */
 @Getter
 @Setter
 @Entity
@@ -25,6 +28,12 @@ public class Item {
     @JoinColumn(name = "funcionario_id", referencedColumnName = "id")
     private Funcionario funcionario;
 
+    /**
+     * Instantiates a new Item.
+     *
+     * @param tipo  the tipo
+     * @param valor the valor
+     */
     public Item(ItemEnum tipo, double valor) {
         this.tipo = tipo;
         this.valor = valor;

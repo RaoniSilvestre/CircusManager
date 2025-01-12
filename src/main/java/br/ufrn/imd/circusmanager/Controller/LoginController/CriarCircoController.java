@@ -5,9 +5,15 @@ import br.ufrn.imd.circusmanager.Service.CircoService;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+/**
+ * The type Criar circo controller.
+ */
 public class CriarCircoController extends TelaComImagem {
 
 
+    /**
+     * The Circo service.
+     */
     CircoService circoService;
 
     @FXML

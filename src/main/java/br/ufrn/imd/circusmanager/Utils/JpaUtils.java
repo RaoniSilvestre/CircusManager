@@ -4,6 +4,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+/**
+ * The type Jpa utils.
+ */
 public class JpaUtils {
 
     private static final EntityManagerFactory emf;
@@ -18,12 +21,20 @@ public class JpaUtils {
         }
     }
 
-    // Retorna um novo EntityManager
+    /**
+     * Gets entity manager.
+     *
+     * @return the entity manager
+     */
+// Retorna um novo EntityManager
     public static EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    // Fecha o EntityManagerFactory ao encerrar a aplicação
+    /**
+     * Close.
+     */
+// Fecha o EntityManagerFactory ao encerrar a aplicação
     public static void close() {
         if (emf != null) {
             emf.close();

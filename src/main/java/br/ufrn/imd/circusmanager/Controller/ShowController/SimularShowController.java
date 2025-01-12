@@ -9,10 +9,22 @@ import br.ufrn.imd.circusmanager.Service.ZooService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+/**
+ * The type Simular show controller.
+ */
 public class SimularShowController extends Tela {
 
+    /**
+     * The Circo service.
+     */
     CircoService circoService;
+    /**
+     * The Zoo service.
+     */
     ZooService zooService;
+    /**
+     * The Funcionario service.
+     */
     FuncionarioService funcionarioService;
 
     @FXML
@@ -36,6 +48,9 @@ public class SimularShowController extends Tela {
     @FXML
     private Label lucroLabel;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.circoService = new CircoService();

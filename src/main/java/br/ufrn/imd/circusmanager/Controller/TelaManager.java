@@ -14,12 +14,23 @@ import javax.persistence.Persistence;
 import java.io.IOException;
 
 
+/**
+ * The type Tela manager.
+ */
 public class TelaManager {
 
     @Getter
     private final StackPane root;
+    /**
+     * The Tela atual.
+     */
     public String telaAtual;
 
+    /**
+     * Instantiates a new Tela manager.
+     *
+     * @param stage the stage
+     */
     public TelaManager(Stage stage) {
         root = new StackPane();
         Scene scene = new Scene(root, 800, 600);
@@ -35,6 +46,11 @@ public class TelaManager {
         Tela.setEntityManager(em);
     }
 
+    /**
+     * Trocar tela.
+     *
+     * @param caminho the caminho
+     */
     public void trocarTela(String caminho) {
         try {
             // Carrega o novo arquivo FXML

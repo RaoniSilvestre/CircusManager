@@ -1,9 +1,24 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios.Enums;
 
+/**
+ * The enum Ocupacao enum.
+ */
 public enum OcupacaoEnum {
+    /**
+     * Magico ocupacao enum.
+     */
     MAGICO,
+    /**
+     * Vendedor ocupacao enum.
+     */
     VENDEDOR,
+    /**
+     * Trapezista ocupacao enum.
+     */
     TRAPEZISTA,
+    /**
+     * Palhaco ocupacao enum.
+     */
     PALHACO;
 
     @Override

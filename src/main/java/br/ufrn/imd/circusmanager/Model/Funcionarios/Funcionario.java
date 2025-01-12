@@ -11,6 +11,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Funcionario.
+ */
 @Getter
 @Setter
 @Entity
@@ -19,6 +22,9 @@ import java.util.List;
 @DiscriminatorColumn(name = "tipo_funcionario", discriminatorType = DiscriminatorType.STRING)
 public abstract class Funcionario {
 
+    /**
+     * The Ocupacao.
+     */
     protected OcupacaoEnum ocupacao;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,6 +40,13 @@ public abstract class Funcionario {
     private List<Item> itens = new ArrayList<>();
 
 
+    /**
+     * Instantiates a new Funcionario.
+     *
+     * @param nome     the nome
+     * @param salario  the salario
+     * @param ocupacao the ocupacao
+     */
     Funcionario(String nome, double salario, OcupacaoEnum ocupacao) {
         this.nome = nome;
         this.salario = salario;

@@ -8,6 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * The type Transacao dao.
+ */
 public class TransacaoDAO extends GenericDAO<Transacao> {
     @Override
     public Transacao buscarPorId(int id) {

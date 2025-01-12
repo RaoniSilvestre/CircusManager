@@ -4,8 +4,16 @@ import br.ufrn.imd.circusmanager.Model.Itens.Enums.ItemEnum;
 
 import java.util.ArrayList;
 
+/**
+ * The type Item factory.
+ */
 public class ItemFactory {
 
+    /**
+     * Get palhaço itens array list.
+     *
+     * @return the array list
+     */
     public static ArrayList<Item> getPalhaçoItens() {
         ArrayList<Item> itensPalhaço = new ArrayList<>();
 
@@ -16,6 +24,11 @@ public class ItemFactory {
     }
 
 
+    /**
+     * Gets vendedor itens.
+     *
+     * @return the vendedor itens
+     */
     public static ArrayList<Item> getVendedorItens() {
         ArrayList<Item> itens = new ArrayList<>();
 
@@ -27,6 +40,11 @@ public class ItemFactory {
     }
 
 
+    /**
+     * Gets trapezista itens.
+     *
+     * @return the trapezista itens
+     */
     public static ArrayList<Item> getTrapezistaItens() {
         ArrayList<Item> itens = new ArrayList<>();
 
@@ -36,6 +54,11 @@ public class ItemFactory {
     }
 
 
+    /**
+     * Gets magico itens.
+     *
+     * @return the magico itens
+     */
     public static ArrayList<Item> getMagicoItens() {
         ArrayList<Item> itens = new ArrayList<>();
 

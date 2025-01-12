@@ -3,6 +3,9 @@ package br.ufrn.imd.circusmanager.Controller.ShowController;
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
 import javafx.fxml.FXML;
 
+/**
+ * The type Tela show controller.
+ */
 public class TelaShowController extends TelaComImagem {
 
     @FXML

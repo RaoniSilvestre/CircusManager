@@ -8,6 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+/**
+ * The type Show dao.
+ */
 public class ShowDAO extends GenericDAO<Show> {
     @Override
     public Show buscarPorId(int id) {
