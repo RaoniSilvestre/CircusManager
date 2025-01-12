@@ -7,19 +7,20 @@ import javafx.scene.control.Label;
 public class TelaInicialController extends TelaComImagem {
 
     @FXML
+    private Label welcomeText;
+
+    @FXML
     public void initialize() {
         caminho = "/br/ufrn/imd/circusmanager/Imagens/ImagemInicial.png";
         super.initialize();
     }
-    
-    @FXML
-    private Label welcomeText;
 
     @Override
-    public void atualizar() {}
+    public void atualizar() {
+    }
 
     @FXML
     protected void onHelloButtonClick() {
-        manager.trocarTela("LoginView.fxml");
+        trocarTela("LoginView.fxml");
     }
 }

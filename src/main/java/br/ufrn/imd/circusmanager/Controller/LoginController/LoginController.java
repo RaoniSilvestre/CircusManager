@@ -1,12 +1,21 @@
 package br.ufrn.imd.circusmanager.Controller.LoginController;
 
+import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
+import br.ufrn.imd.circusmanager.Dao.CircoDAO;
+import br.ufrn.imd.circusmanager.Model.Circus.Circo;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import lombok.Getter;
+import lombok.Setter;
 
 public class LoginController extends TelaComImagem {
+
+    @Getter
+    @Setter
+    private CircoDAO circoDAO;
 
     @FXML
     private Button criarNovoCircoButton;
@@ -24,11 +33,14 @@ public class LoginController extends TelaComImagem {
     public void initialize() {
         caminho = "/br/ufrn/imd/circusmanager/Imagens/CircoLogin.png";
         super.initialize();
+
+
+        this.circoDAO = new CircoDAO();
     }
 
     @FXML
     private void criarNovoCirco() {
-        manager.trocarTela("CriarCircoView.fxml");
+        Tela.getManager().trocarTela("CriarCircoView.fxml");
     }
 
     @FXML
@@ -41,24 +53,23 @@ public class LoginController extends TelaComImagem {
             return;
         }
 
-        // Verificar o nome do circo
-        boolean circoExiste = verificarCirco(circo);
+        Circo circoAtual = this.getCircoDAO().buscarPorNome(circo);
 
-        if (!circoExiste) {
+        if (circoAtual == null) {
             erroLabel.setText("Circo inexistente");
             erroLabel.setVisible(true);
             return;
         }
 
         System.out.println("Entrando no circo: " + circo);
+
+        Tela.setCirco(circoAtual);
+
         erroLabel.setVisible(false);
-        // main.showScreen(4,circo);
+
+        trocarTela("TelaCircoMenuView.fxml");
     }
 
-    private boolean verificarCirco(String circo) {
-        return false; // Faz o codigo ai mano
-        // Ok man jaja
-    }
 
     @Override
     public void atualizar() {

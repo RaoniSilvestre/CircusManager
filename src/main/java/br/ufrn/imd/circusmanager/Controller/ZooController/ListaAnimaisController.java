@@ -2,19 +2,31 @@ package br.ufrn.imd.circusmanager.Controller.ZooController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.Animais.Animal;
+import br.ufrn.imd.circusmanager.Service.ZooService;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-public class ListaAnimaisController extends Tela {
-    @FXML
-    private ListView<String> listaAnimais;
+import java.util.List;
 
-    // Método chamado para preencher a lista de funcionários
+public class ListaAnimaisController extends Tela {
+
+    ZooService zooService;
+
+    @FXML
+    private ListView<Animal> listaAnimais;
+
+    @FXML
+    public void initialize() {
+        this.zooService = new ZooService();
+    }
+
     public void inicializarLista() {
         listaAnimais.getItems().clear();
-    
-        for (Animal animal : circus.getListaDeAnimais()) {
-            listaAnimais.getItems().add(animal.getDescricao());
+
+        List<Animal> animais = this.zooService.listarAnimais(Tela.getCirco());
+
+        for (Animal animal : animais) {
+            listaAnimais.getItems().add(animal);
         }
     }
 

@@ -1,7 +1,7 @@
 package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
-import javafx.fxml.*;
+import javafx.fxml.FXML;
 
 public class TelaFuncionariosController extends TelaComImagem {
 
@@ -13,21 +13,22 @@ public class TelaFuncionariosController extends TelaComImagem {
 
     @FXML
     private void verListaFuncionarios() {
-        manager.trocarTela("ListaFuncionariosView.fxml", circus);
+        trocarTela("ListaFuncionariosView.fxml");
     }
 
     @FXML
     private void adicionarFuncionario() {
-        manager.trocarTela("AddFuncionarioView.fxml", circus);
+        trocarTela("AddFuncionarioView.fxml");
     }
 
 
     @FXML
     private void removerFuncionario() {
-        manager.trocarTela("RemoverFuncionarioView.fxml", circus);
+        trocarTela("RemoverFuncionarioView.fxml");
     }
 
 
     // Atualizar a Interface
-    public void atualizar() {}
+    public void atualizar() {
+    }
 }

@@ -1,23 +1,24 @@
 package br.ufrn.imd.circusmanager.Controller;
 
-import java.io.IOException;
+import br.ufrn.imd.circusmanager.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import br.ufrn.imd.circusmanager.Main;
-import br.ufrn.imd.circusmanager.Model.Circus.Circus;
-import br.ufrn.imd.circusmanager.Storage.CircusStorage;
+import lombok.Getter;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import java.io.IOException;
 
 
 public class TelaManager {
 
+    @Getter
+    private final StackPane root;
     public String telaAtual;
-
-    private StackPane root; // Contêiner de todas as telas
-
-    private CircusStorage circusStorage = new CircusStorage();
 
     public TelaManager(Stage stage) {
         root = new StackPane();
@@ -26,9 +27,15 @@ public class TelaManager {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("circus-manager-pu");
+        EntityManager em = emf.createEntityManager();
+
+        Tela.setManager(this);
+        Tela.setEntityManager(em);
     }
 
-    public void trocarTela(String caminho, Circus... circus) {
+    public void trocarTela(String caminho) {
         try {
             // Carrega o novo arquivo FXML
             FXMLLoader loader = new FXMLLoader(Main.class.getResource(caminho));
@@ -36,17 +43,11 @@ public class TelaManager {
 
             // Limpa o root e adiciona a nova tela
             root.getChildren().clear();
-
             root.getChildren().add(novaTela);
 
             // Configura o controlador da nova tela
             Tela controller = loader.getController();
-            controller.setManager(this);
 
-            if (circus.length > 0) {
-                controller.setCircus(circus[0]);
-            }
-            
             telaAtual = caminho;
             controller.atualizar();
 
@@ -55,12 +56,5 @@ public class TelaManager {
             System.err.println("Erro ao carregar a tela: " + caminho);
         }
     }
-        
-    public void salvarCirco(Circus circo) {
-        circusStorage.salvarCirco(circo);
-    }
 
-    public StackPane getRoot() {
-        return root;
-    }
 }

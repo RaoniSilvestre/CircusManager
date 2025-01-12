@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Objects;
+
 public abstract class TelaComImagem extends Tela {
     protected String caminho = "/br/ufrn/imd/circusmanager/Imagens/CircoMenu.png";
     @FXML
@@ -13,15 +15,15 @@ public abstract class TelaComImagem extends Tela {
     public void initialize() {
         // Carregar a imagem de fundo
         try {
-        Image imagem = new Image(getClass().getResourceAsStream(caminho));
-        imagemFundo.setImage(imagem);
+            System.out.println(caminho);
+            Image imagem = new Image(Objects.requireNonNull(getClass().getResourceAsStream(caminho)));
+            imagemFundo.setImage(imagem);
 
-        // Ajustar para preencher toda a tela
-        imagemFundo.setFitWidth(800);  // Largura da tela (ajuste conforme necessário)
-        imagemFundo.setFitHeight(600); // Altura da tela (ajuste conforme necessário)
-        imagemFundo.setPreserveRatio(false); // Preencher todo o espaço, sem manter proporção
-        }
-        catch (NumberFormatException e) {
+            // Ajustar para preencher toda a tela
+            imagemFundo.setFitWidth(800);
+            imagemFundo.setFitHeight(600);
+            imagemFundo.setPreserveRatio(false);
+        } catch (NumberFormatException e) {
             System.err.println("Erro ao carregar imagem no caminho: " + caminho);
         }
     }

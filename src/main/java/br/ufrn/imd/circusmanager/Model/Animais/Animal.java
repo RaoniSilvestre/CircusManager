@@ -1,41 +1,41 @@
 package br.ufrn.imd.circusmanager.Model.Animais;
 
+import br.ufrn.imd.circusmanager.Model.Circus.Circo;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Setter
 public class Animal {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     private String nome;
-    private Double valorManutencao;
+
+    private double custo;
+
     private AnimalEnum tipo;
 
-    public Animal(String nome, Double valorManutencao, AnimalEnum tipo) {
+    @ManyToOne
+    @JoinColumn(name = "circo_id", referencedColumnName = "id")
+    private Circo circo;
+
+    public Animal() {
+    }
+
+    public Animal(String nome, double custo, AnimalEnum tipo) {
         this.nome = nome;
-        this.valorManutencao = valorManutencao;
+        this.custo = custo;
         this.tipo = tipo;
     }
 
-    public String getDescricao() {
-        return String.format("%s - Especie: %s - Custo: %s", getNome(), getTipo().toString(), getValorManutencao());
+    @Override
+    public String toString() {
+        return String.format("Nome: %s ; Espécie: %s ; Custo: R$ %.2f", nome, tipo, custo);
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Double getValorManutencao() {
-        return valorManutencao;
-    }
-
-    public void setValorManutencao(Double valorManutencao) {
-        this.valorManutencao = valorManutencao;
-    }
-
-    public AnimalEnum getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(AnimalEnum tipo) {
-        this.tipo = tipo;
-    }
 }

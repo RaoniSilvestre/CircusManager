@@ -1,7 +1,7 @@
 package br.ufrn.imd.circusmanager.Controller.ShowController;
 
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
-import javafx.fxml.*;
+import javafx.fxml.FXML;
 
 public class TelaShowController extends TelaComImagem {
 
@@ -13,23 +13,24 @@ public class TelaShowController extends TelaComImagem {
 
     @FXML
     private void registrarShow() {
-        manager.trocarTela("CadastrarShowView.fxml", circus);
+        trocarTela("CadastrarShowView.fxml");
     }
 
 
     @FXML
     private void simularShow() {
-        manager.trocarTela("SimularShowView.fxml", circus);
+        trocarTela("SimularShowView.fxml");
     }
 
 
     @FXML
     private void verHistoricoDeShow() {
-        manager.trocarTela("ListaShowView.fxml", circus);
+        trocarTela("ListaShowView.fxml");
     }
 
 
     // Atualizar a Interface
-    public void atualizar() {}
-    
+    public void atualizar() {
+    }
+
 }

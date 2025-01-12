@@ -1,12 +1,19 @@
 package br.ufrn.imd.circusmanager.Controller.ShowController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
-import br.ufrn.imd.circusmanager.Model.Circus.Circus;
-import br.ufrn.imd.circusmanager.Model.Itens.Vendedores;
+import br.ufrn.imd.circusmanager.Model.Circus.Circo;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
+import br.ufrn.imd.circusmanager.Service.CircoService;
+import br.ufrn.imd.circusmanager.Service.FuncionarioService;
+import br.ufrn.imd.circusmanager.Service.ZooService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class SimularShowController extends Tela {
+
+    CircoService circoService;
+    ZooService zooService;
+    FuncionarioService funcionarioService;
 
     @FXML
     private Label ingressosVendidosLabel;
@@ -29,24 +36,39 @@ public class SimularShowController extends Tela {
     @FXML
     private Label lucroLabel;
 
+    @FXML
+    public void initialize() {
+        this.circoService = new CircoService();
+        this.funcionarioService = new FuncionarioService();
+        this.zooService = new ZooService();
+    }
+
     public void atualizar() {
-        Circus circoAtual = circus;
+        Circo circoAtual = Tela.getCirco();
 
+        double custoDosAnimais = zooService.getCustoTotalAnimal(circoAtual);
+        double custoDosFuncionarios = funcionarioService.getCustoTotalFuncionario(circoAtual);
+        int totalDeAnimadores = funcionarioService.buscarTodosFuncionario(circoAtual)
+                .stream().filter(funcionario -> !funcionario.getOcupacao().equals(OcupacaoEnum.VENDEDOR))
+                .toList()
+                .size();
 
-        double custoDosAnimais = circus.getCustoAnimais();
-        double custoDosFuncionarios = circoAtual.getCustoFuncionarios();
-        int totalDeAnimadores = circoAtual.getQuantidadeAnimadores();
+        int quantidadeVendedores = funcionarioService.buscarTodosFuncionario(circoAtual)
+                .stream()
+                .filter(funcionario -> funcionario.getOcupacao().equals(OcupacaoEnum.VENDEDOR))
+                .toList()
+                .size();
 
-        Vendedores vendedores = circoAtual.getVendedores();
+        int quantidadeAnimais = zooService.listarAnimais(circoAtual).size();
 
-        int numeroAleatorio = 4 + (int)(Math.random() * ((16 - 4) + 1));
-        int totalDeIngressos = (int) (totalDeAnimadores*numeroAleatorio + circoAtual.getListaDeAnimais().size()*numeroAleatorio*1.5);
-        
-        int totalDeAlgodoesVendidos = vendedores.vendedoresDeAlgodaoDoce() * (int)(Math.random() * 11);
-        int totalDePipocasVendidas = vendedores.vendedoresDePipoca() * (int)(Math.random() * 11);
-        int totalDeBrinquedosVendidos = vendedores.vendedoresDeBrinquedo() * (int)(Math.random() * 11);
+        int numeroAleatorio = 4 + (int) (Math.random() * ((16 - 4) + 1));
+        int totalDeIngressos = (int) (totalDeAnimadores * numeroAleatorio + quantidadeAnimais * numeroAleatorio * 1.5);
 
-        double totalArrecadado = totalDeIngressos * 10 + totalDeAlgodoesVendidos*5 + totalDePipocasVendidas*3 + totalDeBrinquedosVendidos*10;
+        int totalDeAlgodoesVendidos = quantidadeVendedores * (int) (Math.random() * 11);
+        int totalDePipocasVendidas = quantidadeVendedores * (int) (Math.random() * 11);
+        int totalDeBrinquedosVendidos = quantidadeVendedores * (int) (Math.random() * 11);
+
+        double totalArrecadado = totalDeIngressos * 10 + totalDeAlgodoesVendidos * 5 + totalDePipocasVendidas * 3 + totalDeBrinquedosVendidos * 10;
 
         double custosTotais = custoDosAnimais + custoDosFuncionarios;
 
@@ -57,6 +79,6 @@ public class SimularShowController extends Tela {
 
         totalArrecadadoLabel.setText("Total arrecadado: R$ " + totalArrecadado);
         custoDoShowLabel.setText("Custo do show: R$ " + custosTotais);
-        lucroLabel.setText("Lucro: R$ " + (totalArrecadado-custosTotais));
+        lucroLabel.setText("Lucro: R$ " + (totalArrecadado - custosTotais));
     }
 }

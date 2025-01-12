@@ -1,30 +1,44 @@
 package br.ufrn.imd.circusmanager.Dao;
 
-import br.ufrn.imd.circusmanager.Model.Animais.Animal;
 import br.ufrn.imd.circusmanager.Model.Circus.Circo;
 import br.ufrn.imd.circusmanager.Utils.JpaUtils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class AnimalDAO extends GenericDAO<Animal> {
+public class CircoDAO extends GenericDAO<Circo> {
+
+
     @Override
-    public Animal buscarPorId(int id) {
+    public Circo buscarPorId(int id) {
         EntityManager em = JpaUtils.getEntityManager();
-        return em.find(Animal.class, id);
+
+        return em.find(Circo.class, id);
+    }
+
+    public Circo buscarPorNome(String nome) {
+        EntityManager em = JpaUtils.getEntityManager();
+        try {
+            return em.createQuery("SELECT c FROM Circo c WHERE c.nome = :nome", Circo.class)
+                    .setParameter("nome", nome)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;  // Caso não encontre nenhum resultado
+        } finally {
+            em.close();
+        }
     }
 
     @Override
-    public List<Animal> buscarTodos(Circo circo) {
+    public List<Circo> buscarTodos(Circo circo) {
         EntityManager em = JpaUtils.getEntityManager();
-        String sql = "SELECT f FROM Animal f WHERE f.circo = :circo";
-        TypedQuery<Animal> query = em.createQuery(sql, Animal.class);
-        query.setParameter("circo", circo);
+
+        TypedQuery<Circo> query = em.createQuery("SELECT c FROM Circo c", Circo.class);
         return query.getResultList();
     }
-
 
     @Override
     public void deletar(int id) {
@@ -32,11 +46,10 @@ public class AnimalDAO extends GenericDAO<Animal> {
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            Animal animal = em.find(Animal.class, id);
-            if (animal != null) {
-                em.merge(animal);
-                animal.setCirco(null);
-                em.remove(animal);
+            Circo entidade = buscarPorId(id);
+            if (entidade != null) {
+                entidade = em.merge(entidade);
+                em.remove(entidade);
             }
             transaction.commit();
         } catch (RuntimeException e) {
@@ -48,6 +61,5 @@ public class AnimalDAO extends GenericDAO<Animal> {
             em.close();
         }
     }
-
 
 }

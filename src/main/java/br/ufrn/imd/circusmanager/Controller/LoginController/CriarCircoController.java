@@ -1,21 +1,26 @@
 package br.ufrn.imd.circusmanager.Controller.LoginController;
 
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
+import br.ufrn.imd.circusmanager.Service.CircoService;
 import javafx.fxml.FXML;
-import br.ufrn.imd.circusmanager.Model.Circus.*;
 import javafx.scene.control.TextField;
 
 public class CriarCircoController extends TelaComImagem {
+
+
+    CircoService circoService;
 
     @FXML
     private TextField nomeCircoField;
 
     @FXML
     private TextField saldoCircoField;
-    
+
     public void initialize() {
         caminho = "/br/ufrn/imd/circusmanager/Imagens/CircoCriar.png";
         super.initialize();
+
+        this.circoService = new CircoService();
     }
 
     @FXML
@@ -36,17 +41,17 @@ public class CriarCircoController extends TelaComImagem {
                 return;
             }
 
-            System.out.println("Circo criado: " + nomeCirco + ", Saldo: " + saldo);
-            Circus circusNovo = new Circus(nomeCirco, saldo);
+            circoService.criarCirco(nomeCirco, saldo);
 
-            // !TODO tirar responsabilidade do main
-            manager.salvarCirco(circusNovo); // Falta implementação
+            TelaComImagem.setCirco(circoService.getCircoPorNome(nomeCirco));
+
+            System.out.println("Circo criado: " + nomeCirco + ", Saldo: " + saldo);
 
             showAlert("Sucesso", "Circo criado com sucesso!");
-            
+
             limpar();
-            
-            manager.trocarTela("TelaCircoMenuView.fxml", circusNovo);
+
+            trocarTela("TelaCircoMenuView.fxml");
 
         } catch (NumberFormatException e) {
             showAlert("Erro", "Saldo deve ser um número válido!");
@@ -65,5 +70,6 @@ public class CriarCircoController extends TelaComImagem {
     }
 
     @Override
-    public void atualizar() {}
+    public void atualizar() {
+    }
 }

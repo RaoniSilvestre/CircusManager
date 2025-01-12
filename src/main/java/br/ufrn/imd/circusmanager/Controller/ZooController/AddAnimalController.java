@@ -1,13 +1,17 @@
 package br.ufrn.imd.circusmanager.Controller.ZooController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
-import br.ufrn.imd.circusmanager.Model.Animais.*;
+import br.ufrn.imd.circusmanager.Model.Animais.Animal;
+import br.ufrn.imd.circusmanager.Model.Animais.AnimalEnum;
+import br.ufrn.imd.circusmanager.Service.ZooService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 public class AddAnimalController extends Tela {
+
+    ZooService zooService;
 
     @FXML
     private ComboBox<AnimalEnum> especieComboBox;
@@ -21,6 +25,7 @@ public class AddAnimalController extends Tela {
     @FXML
     public void initialize() {
         especieComboBox.setItems(FXCollections.observableArrayList(AnimalEnum.values()));
+        this.zooService = new ZooService();
     }
 
     @FXML
@@ -49,7 +54,7 @@ public class AddAnimalController extends Tela {
 
         // Cria o objeto Animal e adiciona ao sistema
         Animal animal = new Animal(nome, valorManutencao, especieSelecionada);
-        circus.addAnimal(animal);
+        zooService.addAnimal(animal, Tela.getCirco());
 
         showAlert("Sucesso", "Animal adicionado com sucesso.");
         voltar();
@@ -62,12 +67,13 @@ public class AddAnimalController extends Tela {
     }
 
     @Override
-    public void atualizar() {}
-    
+    public void atualizar() {
+    }
+
     @FXML
     public void voltar() {
         limpar();
         super.voltar();
     }
-    
+
 }

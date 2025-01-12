@@ -1,85 +1,65 @@
 package br.ufrn.imd.circusmanager.Model.Circus;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
 public class Show {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @ManyToOne
+    @JoinColumn(name = "circo_id", referencedColumnName = "id")
+    private Circo circo;
+
     private String nome;
-    private int totalDeVisitantes;
+
+    private int totalVisitantes;
     private int pipocasVendidas;
     private int algodoesDocesVendidos;
     private int brinquedosVendidos;
     private double custosTotais;
-    private double lucro;
-    private LocalDate data;
+    private double lucroTotal;
 
-    public Show(String nome, int totalDeVisitantes, int pipocasVendidas, int algodoesDocesVendidos,
-            int brinquedosVendidos, double custosTotais, double lucro, LocalDate data) {
-        this.nome = nome;
-        this.totalDeVisitantes = totalDeVisitantes;
+    private String data;
+
+
+    public Show() {
+    }
+
+    public Show(
+            String nomeDoShow,
+            int totalVisitantes,
+            int pipocasVendidas,
+            int algodoesDocesVendidos,
+            int brinquedosVendidos,
+            double custosTotais,
+            double lucro,
+            LocalDate data
+    ) {
+        this.nome = nomeDoShow;
+        this.totalVisitantes = totalVisitantes;
         this.pipocasVendidas = pipocasVendidas;
         this.algodoesDocesVendidos = algodoesDocesVendidos;
         this.brinquedosVendidos = brinquedosVendidos;
         this.custosTotais = custosTotais;
-        this.lucro = lucro;
-        this.data = data;
+        this.lucroTotal = lucro;
+        this.data = data.toString();
     }
 
-    public String getDescricao() {
-        return (nome + " - Visitantes: " + totalDeVisitantes + " - Custos: "+ custosTotais + " - Lucro: " + lucro + " - Data: " + data.toString());
-    }
-    
-    public int getTotalDeVisitantes() {
-        return totalDeVisitantes;
-    }
-    public void setTotalDeVisitantes(int totalDeVisitantes) {
-        this.totalDeVisitantes = totalDeVisitantes;
-    }
-    public int getPipocasVendidas() {
-        return pipocasVendidas;
-    }
-    public void setPipocasVendidas(int pipocasVendidas) {
-        this.pipocasVendidas = pipocasVendidas;
-    }
-    public int getAlgodoesDocesVendidos() {
-        return algodoesDocesVendidos;
-    }
-    public void setAlgodoesDocesVendidos(int algodoesDocesVendidos) {
-        this.algodoesDocesVendidos = algodoesDocesVendidos;
-    }
-    public int getBrinquedosVendidos() {
-        return brinquedosVendidos;
-    }
-    public void setBrinquedosVendidos(int brinquedosVendidos) {
-        this.brinquedosVendidos = brinquedosVendidos;
-    }
-    public double getCustosTotais() {
-        return custosTotais;
-    }
-    public void setCustosTotais(double custosTotais) {
-        this.custosTotais = custosTotais;
-    }
-    public double getLucro() {
-        return lucro;
-    }
-    public void setLucro(double lucro) {
-        this.lucro = lucro;
-    }
-    public LocalDate getData() {
-        return data;
-    }
-    public void setData(LocalDate data) {
-        this.data = data;
+    @Override
+    public String toString() {
+        return String.format("Nome do Show: %s ; Custo Total: R$ %.2f ; Lucro: R$ %.2f ; Data: %s",
+                nome, custosTotais, lucroTotal, data);
     }
 
-
-    public String getNome() {
-        return nome;
-    }
-
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    
 }

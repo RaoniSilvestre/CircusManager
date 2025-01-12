@@ -1,7 +1,7 @@
 package br.ufrn.imd.circusmanager.Controller.ZooController;
 
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
-import javafx.fxml.*;
+import javafx.fxml.FXML;
 
 public class TelaZooController extends TelaComImagem {
 
@@ -12,22 +12,23 @@ public class TelaZooController extends TelaComImagem {
 
     @FXML
     private void verListaAnimais() {
-        manager.trocarTela("ListaAnimaisView.fxml", circus);
+        trocarTela("ListaAnimaisView.fxml");
     }
 
 
     @FXML
     private void adicionarAnimal() {
-        manager.trocarTela("AddAnimalView.fxml", circus);
+        trocarTela("AddAnimalView.fxml");
     }
 
 
     @FXML
     private void removerAnimal() {
-        manager.trocarTela("RemoverAnimalView.fxml", circus);
+        trocarTela("RemoverAnimalView.fxml");
     }
 
     // Atualizar a Interface
-    public void atualizar() {}
-    
+    public void atualizar() {
+    }
+
 }
