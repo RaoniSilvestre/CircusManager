@@ -9,7 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * The type Tela circo menu controller.
+ */
 public class TelaCircoMenuController extends TelaComImagem {
+    /**
+     * The Circo service.
+     */
     CircoService circoService;
 
     @FXML

@@ -12,13 +12,22 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
+/**
+ * The type Remover animal controller.
+ */
 public class RemoverAnimalController extends Tela {
 
+    /**
+     * The Zoo service.
+     */
     ZooService zooService;
 
     @FXML
     private VBox animaisVBox;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.zooService = new ZooService();

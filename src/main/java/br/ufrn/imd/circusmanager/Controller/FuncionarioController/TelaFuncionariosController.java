@@ -3,6 +3,9 @@ package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
 import javafx.fxml.FXML;
 
+/**
+ * The type Tela funcionarios controller.
+ */
 public class TelaFuncionariosController extends TelaComImagem {
 
     @FXML

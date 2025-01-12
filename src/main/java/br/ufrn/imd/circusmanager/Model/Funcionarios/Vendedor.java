@@ -6,15 +6,29 @@ import lombok.NoArgsConstructor;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+/**
+ * The type Vendedor.
+ */
 @Entity
 @DiscriminatorValue("VENDEDOR")
 @NoArgsConstructor
 public class Vendedor extends Funcionario {
 
+    /**
+     * Instantiates a new Vendedor.
+     *
+     * @param nome    the nome
+     * @param salario the salario
+     */
     public Vendedor(String nome, double salario) {
         super(nome, salario, OcupacaoEnum.VENDEDOR);
     }
 
+    /**
+     * Gets tipo to string.
+     *
+     * @return the tipo
+     */
     @Override
     public String getTipoToString() {
         return "Vendedor";

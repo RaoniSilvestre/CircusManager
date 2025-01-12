@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * The type Transacao.
+ */
 @Entity
 @Getter
 @Setter
@@ -22,14 +25,28 @@ public class Transacao {
 
     private double amount;
 
+    /**
+     * Instantiates a new Transacao.
+     */
     public Transacao() {
     }
 
+    /**
+     * Instantiates a new Transacao.
+     *
+     * @param transacaoEnum the transacao enum
+     * @param amount        the amount
+     */
     public Transacao(TransacaoEnum transacaoEnum, double amount) {
         this.transacaoEnum = transacaoEnum;
         this.amount = amount;
     }
 
+    /**
+     * Instantiates a new Transacao.
+     *
+     * @param amount the amount
+     */
     public Transacao(double amount) {
         this.amount = amount;
     }

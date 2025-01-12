@@ -1,10 +1,26 @@
 package br.ufrn.imd.circusmanager.Model.Animais;
 
+/**
+ * The enum Animal enum.
+ */
 public enum AnimalEnum {
+    /**
+     * Girafa animal enum.
+     */
     GIRAFA,
+    /**
+     * Leao animal enum.
+     */
     LEAO,
+    /**
+     * Ornitorrinco animal enum.
+     */
     ORNITORRINCO, // PERRY!
-    ELEFANTE,;
+    /**
+     * Elefante animal enum.
+     */
+    ELEFANTE,
+    ;
 
     @Override
     public String toString() {

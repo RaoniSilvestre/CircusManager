@@ -8,19 +8,31 @@ import javafx.scene.control.ListView;
 
 import java.util.List;
 
+/**
+ * The type Lista show controller.
+ */
 public class ListaShowController extends Tela {
+    /**
+     * The Show service.
+     */
     ShowService showService;
 
 
     @FXML
     private ListView<Show> listashows;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.showService = new ShowService();
     }
 
-    // Método chamado para preencher a lista de funcionários
+    /**
+     * Inicializar lista.
+     */
+// Método chamado para preencher a lista de funcionários
     public void inicializarLista() {
         listashows.getItems().clear();
 

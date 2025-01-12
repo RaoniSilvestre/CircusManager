@@ -6,11 +6,20 @@ import javafx.scene.image.ImageView;
 
 import java.util.Objects;
 
+/**
+ * The type Tela com imagem.
+ */
 public abstract class TelaComImagem extends Tela {
+    /**
+     * The Caminho.
+     */
     protected String caminho = "/br/ufrn/imd/circusmanager/Imagens/CircoMenu.png";
     @FXML
     private ImageView imagemFundo;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         // Carregar a imagem de fundo

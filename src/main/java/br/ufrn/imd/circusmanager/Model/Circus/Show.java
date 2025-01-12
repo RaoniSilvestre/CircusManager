@@ -7,6 +7,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * The type Show.
+ */
 @Entity
 @Getter
 @Setter
@@ -33,9 +36,24 @@ public class Show {
     private String data;
 
 
+    /**
+     * Instantiates a new Show.
+     */
     public Show() {
     }
 
+    /**
+     * Instantiates a new Show.
+     *
+     * @param nomeDoShow            the nome do show
+     * @param totalVisitantes       the total visitantes
+     * @param pipocasVendidas       the pipocas vendidas
+     * @param algodoesDocesVendidos the algodoes doces vendidos
+     * @param brinquedosVendidos    the brinquedos vendidos
+     * @param custosTotais          the custos totais
+     * @param lucro                 the lucro
+     * @param data                  the data
+     */
     public Show(
             String nomeDoShow,
             int totalVisitantes,

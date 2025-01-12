@@ -9,6 +9,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * The type Circo.
+ */
 @Entity
 @Getter
 @Setter
@@ -32,9 +35,17 @@ public class Circo {
     @OneToMany(mappedBy = "circo", cascade = CascadeType.ALL)
     private List<Funcionario> funcionarios;
 
+    /**
+     * Instantiates a new Circo.
+     */
     public Circo() {
     }
 
+    /**
+     * Instantiates a new Circo.
+     *
+     * @param nome the nome
+     */
     public Circo(String nome) {
         this.nome = nome;
     }

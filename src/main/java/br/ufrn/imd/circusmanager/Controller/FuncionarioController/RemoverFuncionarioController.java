@@ -12,13 +12,22 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
+/**
+ * The type Remover funcionario controller.
+ */
 public class RemoverFuncionarioController extends Tela {
 
+    /**
+     * The Funcionario service.
+     */
     FuncionarioService funcionarioService;
 
     @FXML
     private VBox funcionariosVBox;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.funcionarioService = new FuncionarioService();

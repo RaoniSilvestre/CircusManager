@@ -9,8 +9,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+/**
+ * The type Add animal controller.
+ */
 public class AddAnimalController extends Tela {
 
+    /**
+     * The Zoo service.
+     */
     ZooService zooService;
 
     @FXML
@@ -22,6 +28,9 @@ public class AddAnimalController extends Tela {
     @FXML
     private TextField valorManutencaoTextField;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         especieComboBox.setItems(FXCollections.observableArrayList(AnimalEnum.values()));

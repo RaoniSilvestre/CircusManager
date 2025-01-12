@@ -17,10 +17,19 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.stream.IntStream;
 
+/**
+ * The type Cadastrar show controller.
+ */
 public class CadastrarShowController extends Tela {
 
+    /**
+     * The Show service.
+     */
     ShowService showService;
 
+    /**
+     * The Circo service.
+     */
     CircoService circoService;
 
     @FXML
@@ -50,6 +59,9 @@ public class CadastrarShowController extends Tela {
     @FXML
     private ComboBox<Integer> anoComboBox;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         this.showService = new ShowService();

@@ -11,6 +11,9 @@ import javafx.scene.control.TextField;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The type Login controller.
+ */
 public class LoginController extends TelaComImagem {
 
     @Getter

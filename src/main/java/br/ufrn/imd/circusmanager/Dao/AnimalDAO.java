@@ -9,6 +9,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+
+/**
+ * The type Animal dao.
+ */
 public class AnimalDAO extends GenericDAO<Animal> {
     @Override
     public Animal buscarPorId(int id) {

@@ -3,6 +3,9 @@ package br.ufrn.imd.circusmanager.Controller.ZooController;
 import br.ufrn.imd.circusmanager.Controller.TelaComImagem;
 import javafx.fxml.FXML;
 
+/**
+ * The type Tela zoo controller.
+ */
 public class TelaZooController extends TelaComImagem {
 
     public void initialize() {

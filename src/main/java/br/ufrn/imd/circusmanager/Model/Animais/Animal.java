@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * The type Animal.
+ */
 @Entity
 @Getter
 @Setter
@@ -24,9 +27,19 @@ public class Animal {
     @JoinColumn(name = "circo_id", referencedColumnName = "id")
     private Circo circo;
 
+    /**
+     * Instantiates a new Animal.
+     */
     public Animal() {
     }
 
+    /**
+     * Instantiates a new Animal.
+     *
+     * @param nome  the nome
+     * @param custo the custo
+     * @param tipo  the tipo
+     */
     public Animal(String nome, double custo, AnimalEnum tipo) {
         this.nome = nome;
         this.custo = custo;
