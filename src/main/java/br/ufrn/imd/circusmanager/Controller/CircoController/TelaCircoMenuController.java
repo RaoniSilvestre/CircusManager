@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 
 public class TelaCircoMenuController extends TelaComImagem {
     CircoService circoService;
@@ -26,46 +25,10 @@ public class TelaCircoMenuController extends TelaComImagem {
     private TextField saldoTextField;
 
     @FXML
-    private Button confirmarButton;
-
-    @FXML
-    private Button cancelarButton;
-
-    @FXML
-    private HBox editSaldoContainer;
-
-    @FXML
     public void initialize() {
         this.circoService = new CircoService();
-    }
-
-    @FXML
-    private void editarSaldo() {
-        // Ocultar o saldo e o botão "Editar"
-        saldoLabel.setVisible(false);
-        editarSaldoButton.setVisible(false);
-
-        // Mostrar o contêiner de edição
-        editSaldoContainer.setVisible(true);
-    }
-
-    @FXML
-    private void confirmarSaldo() {
-        try {
-            double novoSaldo = Double.parseDouble(saldoTextField.getText());
-
-            atualizar();
-        } catch (NumberFormatException e) {
-            showAlert("Erro!", "Valor inválido.");
-        }
-    }
-
-    @FXML
-    private void cancelarEdicaoSaldo() {
-        editSaldoContainer.setVisible(false);
-
-        saldoLabel.setVisible(true);
-        editarSaldoButton.setVisible(true);
+        caminho = "/br/ufrn/imd/circusmanager/Imagens/CircoMenu.png";
+        super.initialize();
     }
 
 
@@ -103,8 +66,6 @@ public class TelaCircoMenuController extends TelaComImagem {
         double saldo = circoService.calcularSaldo(circo);
 
         saldoLabel.setText("Saldo: " + saldo);
-
-        cancelarEdicaoSaldo();
     }
 
 }

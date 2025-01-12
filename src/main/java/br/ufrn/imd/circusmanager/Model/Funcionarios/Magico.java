@@ -17,4 +17,9 @@ public class Magico extends Funcionario {
         super(nome, salario, OcupacaoEnum.MAGICO);
         this.tipo = tipo;
     }
+
+    @Override
+    public String getTipoToString() {
+        return tipo.toString();
+    }
 }

@@ -29,13 +29,6 @@
                 <Label fx:id="saldoLabel" text="Saldo: $0.00" 
                         style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white; 
                             -fx-effect: dropshadow(gaussian, black, 10, 0.7, 2, 2);" />
-                
-                <Button fx:id="editarSaldoButton" text="Editar" onAction="#editarSaldo" />
-            </HBox>
-            <HBox alignment="CENTER" spacing="10" visible="false" fx:id="editSaldoContainer">
-                <TextField fx:id="saldoTextField" promptText="Novo Saldo" />
-                <Button fx:id="confirmarButton" text="Confirmar" onAction="#confirmarSaldo" />
-                <Button fx:id="cancelarButton" text="Cancelar" onAction="#cancelarEdicaoSaldo" />
             </HBox>
         </VBox>
 

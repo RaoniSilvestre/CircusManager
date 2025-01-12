@@ -17,4 +17,9 @@ public class Trapezista extends Funcionario {
         super(nome, salario, OcupacaoEnum.TRAPEZISTA);
         this.tipo = tipo;
     }
+
+    @Override
+    public String getTipoToString() {
+        return tipo.toString();
+    }
 }

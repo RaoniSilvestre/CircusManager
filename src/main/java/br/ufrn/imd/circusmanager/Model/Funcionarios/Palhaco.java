@@ -18,4 +18,8 @@ public class Palhaco extends Funcionario {
         this.tipo = tipo;
     }
 
+    @Override
+    public String getTipoToString() {
+        return tipo.toString();
+    }
 }

@@ -15,8 +15,8 @@ public class Vendedor extends Funcionario {
         super(nome, salario, OcupacaoEnum.VENDEDOR);
     }
 
-    public String getTipo() {
+    @Override
+    public String getTipoToString() {
         return "Vendedor";
     }
-
 }
