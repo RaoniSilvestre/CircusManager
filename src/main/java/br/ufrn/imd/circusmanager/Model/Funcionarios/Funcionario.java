@@ -1,72 +1,46 @@
 package br.ufrn.imd.circusmanager.Model.Funcionarios;
 
+import br.ufrn.imd.circusmanager.Model.Circus.Circo;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
 import br.ufrn.imd.circusmanager.Model.Itens.Item;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.Set;
 
+@Getter
+@Setter
+@Entity
 public abstract class Funcionario {
-    private ArrayList<Item> itens;
+
+    protected OcupacaoEnum ocupacao;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String nome;
     private double salario;
-    protected OcupacaoEnum ocupacao;
-    
 
-    Funcionario(String nome, double salario, OcupacaoEnum ocupacao) {
+    @ManyToOne
+    @JoinColumn(name = "circo_id")
+    private Circo circo;
+
+    @OneToMany(mappedBy = "funcionario")
+    private Set<Item> itens;
+
+
+    Funcionario(String nome, double salario, OcupacaoEnum ocupacao, Set<Item> itens) {
         this.nome = nome;
         this.salario = salario;
         this.ocupacao = ocupacao;
-        itens = new ArrayList<>();
-    }
-
-    public String itensToString() {
-        if (!itens.isEmpty()) {
-            StringBuilder itensString = new StringBuilder();
-            for (Item item : itens){
-                itensString.append(item).append(", ");
-            }
-
-            return itensString.substring(0, itensString.length()-2);
-        }
-        return "Nenhum";
+        this.itens = itens;
     }
 
     public String getDescricao() {
-        return String.format("%s - Ocupação: %s - Tipo: %s - Salario: %s - Itens: %s.", getNome(), getOcupacacao().toString(), getTipo(), getSalario(), itensToString());
+        return String.format("%s - Ocupação: %s - Salario: %s", getNome(), getOcupacacao().toString(), getSalario());
     }
 
     public OcupacaoEnum getOcupacacao() {
         return this.ocupacao;
     }
-
-    public abstract String getTipo();
-
-    public void addItem(Item i) {
-        itens.add(i);
-    }
-
-    public void deleteItem(Item i) {
-        itens.remove(i);
-    }
-
-    public ArrayList<Item> getItens() {
-        return itens;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
 }

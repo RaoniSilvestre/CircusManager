@@ -1,52 +1,39 @@
 package br.ufrn.imd.circusmanager.Model.Circus;
 
-import br.ufrn.imd.circusmanager.Model.ContaBancaria.ContaCirco;
+import br.ufrn.imd.circusmanager.Model.Animais.Animal;
+import br.ufrn.imd.circusmanager.Model.ContaBancaria.Conta;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.Set;
 
-public class Circus {
-
+@Entity
+@Getter
+@Setter
+public class Circo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(nullable = false)
     private String nome;
 
     @OneToOne(mappedBy = "circo")
-    private ContaCirco conta;
+    private Conta conta;
 
+    @OneToMany(mappedBy = "circo")
+    private Set<Show> shows;
 
-    public Circus(int id, String nome) {
-        this.id = id;
+    @OneToMany(mappedBy = "circo")
+    private Set<Animal> animais;
+
+    @OneToMany(mappedBy = "circo")
+    private Set<Funcionario> funcionarios;
+
+    public Circo(String nome) {
         this.nome = nome;
     }
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getCircoId() {
-        return circoId;
-    }
-
-    public void setCircoId(int circoId) {
-        this.circoId = circoId;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
 }
+

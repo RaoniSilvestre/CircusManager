@@ -1,26 +1,24 @@
 package br.ufrn.imd.circusmanager.Model.ContaBancaria;
 
 import br.ufrn.imd.circusmanager.Model.Circus.Circo;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-public class ContaCirco {
-
+@Getter
+@Setter
+public class Conta {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @OneToOne
-    @JoinColumn(name = "circo_id")
+    @JoinColumn(name = "circo_id", referencedColumnName = "id")
     private Circo circo;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    @OneToMany(mappedBy = "conta")
+    private Set<Transacao> transacoes;
 }

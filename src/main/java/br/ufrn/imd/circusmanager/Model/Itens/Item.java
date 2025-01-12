@@ -1,30 +1,31 @@
 package br.ufrn.imd.circusmanager.Model.Itens;
 
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Funcionario;
 import br.ufrn.imd.circusmanager.Model.Itens.Enums.ItemEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
+@Entity
 public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     private ItemEnum tipo;
-    private Long valor;
 
-    protected Item(ItemEnum tipo, Long valor) {
+    private double valor;
+
+    @ManyToOne
+    @JoinColumn(name = "funcionario_id", referencedColumnName = "id")
+    private Funcionario funcionario;
+
+    public Item(ItemEnum tipo, double valor) {
         this.tipo = tipo;
         this.valor = valor;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(Long valor) {
-        this.valor = valor;
-    }
-
-    public ItemEnum getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(ItemEnum tipo) {
-        this.tipo = tipo;
     }
 
     @Override
