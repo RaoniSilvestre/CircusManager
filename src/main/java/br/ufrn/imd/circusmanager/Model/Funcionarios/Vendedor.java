@@ -25,12 +25,12 @@ public class Vendedor extends Funcionario {
     }
 
     /**
-     * Gets tipo.
+     * Gets tipo to string.
      *
      * @return the tipo
      */
-    public String getTipo() {
+    @Override
+    public String getTipoToString() {
         return "Vendedor";
     }
-
 }

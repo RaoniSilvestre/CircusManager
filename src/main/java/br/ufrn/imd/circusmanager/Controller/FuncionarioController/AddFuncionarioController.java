@@ -2,10 +2,7 @@ package br.ufrn.imd.circusmanager.Controller.FuncionarioController;
 
 import br.ufrn.imd.circusmanager.Controller.Tela;
 import br.ufrn.imd.circusmanager.Model.ContaBancaria.Transacao;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.MagicoEnum;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.OcupacaoEnum;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.PalhacoEnum;
-import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.TrapezistaEnum;
+import br.ufrn.imd.circusmanager.Model.Funcionarios.Enums.*;
 import br.ufrn.imd.circusmanager.Model.Funcionarios.*;
 import br.ufrn.imd.circusmanager.Model.Itens.Item;
 import br.ufrn.imd.circusmanager.Model.Itens.ItemFactory;
@@ -154,13 +151,6 @@ public class AddFuncionarioController extends Tela {
 
         showAlert("Funcionario adicionado", "Funcionario foi adicionado com sucesso");
         voltar();
-    }
-
-
-    private void adicionarItens(Funcionario funcionario) {
-        for (Item item : itensListView.getItems()) {
-            funcionario.getItens().add(item);
-        }
     }
 
     private void limpar() {

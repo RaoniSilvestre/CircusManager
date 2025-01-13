@@ -31,6 +31,7 @@ public abstract class Funcionario {
     private int id;
     private String nome;
     private double salario;
+    public abstract String getTipoToString();
 
     @ManyToOne
     @JoinColumn(name = "circo_id")
@@ -55,7 +56,7 @@ public abstract class Funcionario {
 
     @Override
     public String toString() {
-        return String.format("Id: %d ; Nome: %s, Salario: R$%.2f ; Ocupacao: %s ; Itens: %d",
-                id, nome, salario, ocupacao, itens.size());
+        return String.format("Id: %d ; Nome: %s, Salario: R$%.2f ;\nOcupacao: %s ; Tipo: %s ; Itens: %d",
+                id, nome, salario, ocupacao, getTipoToString(),itens.size());
     }
 }

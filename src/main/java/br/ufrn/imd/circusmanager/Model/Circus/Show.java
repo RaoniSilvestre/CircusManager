@@ -76,8 +76,8 @@ public class Show {
 
     @Override
     public String toString() {
-        return String.format("Nome do Show: %s ; Custo Total: R$ %.2f ; Lucro: R$ %.2f ; Data: %s",
-                nome, custosTotais, lucroTotal, data);
+        return String.format("Nome do Show: %s ;\nTotal de visitantes: %d;\nCusto Total: R$ %.2f ; Lucro: R$ %.2f ;\nData: %s",
+                nome, totalVisitantes, custosTotais, lucroTotal, data);
     }
 
 }

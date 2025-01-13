@@ -92,7 +92,7 @@ public class CadastrarShowController extends Tela {
     private void registrar() {
         try {
             // Nome do show baseado no tamanho da lista
-            String nomeDoShow = "Show" + showService.listarShow(Tela.getCirco()).size();
+            String nomeDoShow = "Show " + showService.listarShow(Tela.getCirco()).size();
 
             // Conversão dos campos numéricos
             int totalVisitantes = Integer.parseInt(totalVisitantesField.getText());
